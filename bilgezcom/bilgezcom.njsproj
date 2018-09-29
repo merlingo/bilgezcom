@@ -5,6 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>bilgezcom</Name>
     <RootNamespace>bilgezcom</RootNamespace>
+    <NameOfLastUsedPublishProfile>bilgezcom20180911100240 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -30,11 +31,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="public\javascripts\main.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\coming_soon.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
+    <None Include="bilgezcom - Web Deploy.pubxml" />
+    <None Include="bilgezcom20180911100240 - Web Deploy.pubxml" />
     <Content Include="package.json" />
+    <Content Include="public\images\logo.ico" />
+    <Content Include="public\images\logo.png" />
+    <Content Include="public\images\xsm_logo.png" />
+    <Content Include="public\images\cover.jpg" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="routes\coming_soon.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\coming_soon.html" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
