@@ -1,0 +1,2 @@
+D:\Calismalar\Visual Studio Projeler\Projects\ConsoleApp1_2017\bilgezcom\bilgezcom\obj\Debug\bilgezcom.njsproj.CoreCompileInputs.cache
+D:\Calismalar\Visual Studio Projeler\Projects\ConsoleApp1_2017\bilgezcom\bilgezcom\bin\Microsoft.NodejsTools.WebRole.dll
