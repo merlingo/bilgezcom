@@ -37,29 +37,75 @@
     <Compile Include="public\javascripts\main.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="public\js\bootstrap-datepicker.min.js" />
+    <Compile Include="public\js\bootstrap.min.js" />
+    <Compile Include="public\js\classie.js" />
+    <Compile Include="public\js\google_map.js" />
+    <Compile Include="public\js\hoverIntent.js" />
+    <Compile Include="public\js\jquery.easing.1.3.js" />
+    <Compile Include="public\js\jquery.magnific-popup.min.js" />
+    <Compile Include="public\js\jquery.min.js" />
+    <Compile Include="public\js\jquery.stellar.min.js" />
+    <Compile Include="public\js\jquery.waypoints.min.js" />
+    <Compile Include="public\js\magnific-popup-options.js" />
+    <Compile Include="public\js\main.js" />
+    <Compile Include="public\js\modernizr-2.6.2.min.js" />
+    <Compile Include="public\js\respond.min.js" />
+    <Compile Include="public\js\selectFx.js" />
+    <Compile Include="public\js\sticky.js" />
+    <Compile Include="public\js\superfish.js" />
     <Compile Include="routes\coming_soon.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="routes\ucus_arama.js">
       <SubType>Code</SubType>
     </Compile>
     <None Include="bilgezcom - Web Deploy.pubxml" />
     <None Include="bilgezcom20180911100240 - Web Deploy.pubxml" />
     <Content Include="package.json" />
+    <Content Include="public\css\.DS_Store" />
+    <Content Include="public\css\animate.css" />
+    <Content Include="public\css\bootstrap-datepicker.min.css" />
+    <Content Include="public\css\bootstrap.css" />
+    <Content Include="public\css\bootstrap.css.map" />
+    <Content Include="public\css\cs-select.css" />
+    <Content Include="public\css\cs-skin-border.css" />
+    <Content Include="public\css\icomoon.css" />
+    <Content Include="public\css\magnific-popup.css" />
+    <Content Include="public\css\style.css" />
+    <Content Include="public\css\style.css.map" />
+    <Content Include="public\css\superfish.css" />
     <Content Include="public\images\logo.ico" />
     <Content Include="public\images\logo.png" />
     <Content Include="public\images\xsm_logo.png" />
     <Content Include="public\images\cover.jpg" />
+    <Content Include="public\js\.DS_Store" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
-    <Content Include="views\coming_soon.html" />
+    <Content Include="views\.DS_Store" />
+    <Content Include="views\blog.html" />
+    <Content Include="views\car.html" />
+    <Content Include="views\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
+    <Folder Include="public\css\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
+    <Folder Include="public\js\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\coming_soon1.html" />
+    <Content Include="views\coming_soon333.html" />
+    <Content Include="views\coming_soon44.html" />
+    <Content Include="views\contact.html" />
+    <Content Include="views\flight.html" />
+    <Content Include="views\hotel.html" />
+    <Content Include="views\README.txt" />
+    <Content Include="views\vacation.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
   </ItemGroup>
