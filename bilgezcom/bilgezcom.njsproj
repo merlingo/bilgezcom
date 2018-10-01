@@ -31,14 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="config.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\javascripts\main.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes\coming_soon.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes\index.js" />
-    <Compile Include="routes\users.js" />
     <None Include="bilgezcom - Web Deploy.pubxml" />
     <None Include="bilgezcom20180911100240 - Web Deploy.pubxml" />
     <Content Include="package.json" />
@@ -48,13 +49,7 @@
     <Content Include="public\images\cover.jpg" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
-    <Content Include="routes\coming_soon.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="views\coming_soon.html" />
-    <Content Include="views\index.pug" />
-    <Content Include="views\layout.pug" />
-    <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
