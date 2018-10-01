@@ -6,8 +6,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var config = require("./config")
+var ejs = require('ejs');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 var coming_soon = require('./routes/coming_soon');
 var app = express();
 
@@ -15,22 +16,18 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs'); // template engine
 //app.engine('html',ejs.renderFile); // turn engine to use html
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-mongoose.connect(config.mongoUrl, config.connectionOptions, function (err) {
-    if (err) {
-        console.log(err);
-    }
-
-    else console.log("connected to database");
-})
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//app.use('/', routes);
+//app.use('/users', users);
 app.use('/yakinda', coming_soon);
 app.use(redirectUnmatched);
 
