@@ -8,8 +8,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require("./config")
-var coming_soon = require('./routes/coming_soon');
-var ucus_arama = require("./routes/ucus_arama")
+
+var membership = require('./routes/membership_procedures')
+var pages = require("./routes/pages")
 var app = express();
 
 // view engine setup
@@ -26,9 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/yakinda', coming_soon);
-app.use('/', ucus_arama);
-
+app.use('/', pages);
+app.use('/membership', membership);
 //app.use(redirectUnmatched);
 
 mongoose.connect(config.mongoUrl, config.connectionOptions, function (err) {

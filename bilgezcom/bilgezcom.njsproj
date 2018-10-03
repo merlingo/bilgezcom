@@ -34,6 +34,9 @@
     <Compile Include="config.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\clients.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\javascripts\main.js">
       <SubType>Code</SubType>
     </Compile>
@@ -54,10 +57,10 @@
     <Compile Include="public\js\selectFx.js" />
     <Compile Include="public\js\sticky.js" />
     <Compile Include="public\js\superfish.js" />
-    <Compile Include="routes\coming_soon.js">
+    <Compile Include="routes\pages.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes\ucus_arama.js">
+    <Compile Include="routes\membership_procedures.js">
       <SubType>Code</SubType>
     </Compile>
     <None Include="bilgezcom - Web Deploy.pubxml" />
@@ -88,6 +91,7 @@
     <Content Include="views\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="models\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
     <Folder Include="public\images\" />
