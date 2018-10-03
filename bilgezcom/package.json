@@ -6,9 +6,6 @@
     "start": "node app"
   },
   "description": "bilgezcom",
-  "author": {
-    "name": "MertNAR"
-  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
