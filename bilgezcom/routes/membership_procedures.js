@@ -18,4 +18,9 @@ router.post('/signup', function (req, res) {
         res.json(client);
     });
 });
+router.get('/users', function (req, res) {
+    Client.find({}, function (err, clients) {
+        res.send(clients);
+    });
+})
 module.exports = router;
