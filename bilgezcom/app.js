@@ -15,8 +15,9 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+//app.set('node_modules', path.join(__dirname, 'node_modules'));
 
-//app.set('view engine', 'ejs'); // template engine
+app.set('view engine', 'ejs'); // template engine
 //app.engine('html',ejs.renderFile); // turn engine to use html
 
 // uncomment after placing your favicon in /public
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', pages);
 app.use('/membership', membership);
