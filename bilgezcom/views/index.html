@@ -11,6 +11,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link href="css/style.css" rel="stylesheet">
+        
 	
 	<title>Bilet Gezegeni &mdash; Şimdilik Dünya</title>
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
@@ -77,7 +81,8 @@
 	<body>
 		<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-
+            
+    
 		<header id="fh5co-header-section" class="sticky-banner">
 			<div class="container">
 				<div class="nav-header">
@@ -86,24 +91,72 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
+                            
+                            
+
 							<li class="active">
 							<li>
 							
 							</li>
 							
 							
-							<li><a href="contact.html">Login</a></li>
+							
 						</ul>
+                                        <span class="navbar-text">
+                    <a data-toggle="modal" data-target="#loginModal">
+                    <span class="fa fa-sign-in"></span> Login</a>
+                </span>
 					</nav>
-				</div>
-			</div>
+			
+             
+                
+        </div>
+    </div>
+
+                <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+            
 		</header>
 
 		<!-- end:header-top -->
 	
 		<div class="fh5co-hero">
 			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_4.jpg);">
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover.jpg);">
 				<div class="desc">
 					<div class="container">
 						<div class="row">
@@ -603,6 +656,7 @@
 							</ul>
 						
 					</div>
+                         
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
@@ -622,6 +676,11 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 	
 
 	</div>
