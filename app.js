@@ -11,14 +11,13 @@ var config = require("./config")
 
 var membership = require('./routes/membership_procedures')
 var pages = require("./routes/pages")
-var api = require("./routes/APIs")
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('node_modules', path.join(__dirname, 'node_modules'));
 
-//app.set('view engine', 'ejs'); // template engine
+app.set('view engine', 'ejs'); // template engine
 //app.engine('html',ejs.renderFile); // turn engine to use html
 
 // uncomment after placing your favicon in /public
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', pages);
 app.use('/membership', membership);
-app.use('/api', api);
 //app.use(redirectUnmatched);
 
 mongoose.connect(config.mongoUrl, config.connectionOptions, function (err) {

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="bilgezcom20180911100240" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Calismalar\\Visual\ Studio\ Projeler\\Projects\\ConsoleApp1_2017\\bilgezcom\\bilgezcom\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Calismalar\\Visual\ Studio\ Projeler\\Projects\\ConsoleApp1_2017\\bilgezcom\\bilgezcom\\obj\\Release\\Package\\PackageTmp$" />
-  </parameter>
-</parameters>
