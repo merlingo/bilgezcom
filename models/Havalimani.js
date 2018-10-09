@@ -9,12 +9,13 @@ var havalimanSchema = new Schema({
     },
     ulke: {
         type: String,
-        required: false
+        required: true
     },
     kita: {
-        type: String
+        type: String,
+        required: true
     },
-    hvlmnIsmi: {
+    havalimani: {
         type: String,
         required: true
     },
@@ -23,8 +24,8 @@ var havalimanSchema = new Schema({
         default: false
     },
     konum: {
-        type: String,
-        required: false
+        longitude: Number,
+        latitude: Number
     }
     
 }, {
@@ -33,6 +34,6 @@ var havalimanSchema = new Schema({
 
     
 
-var Havaliman = mongoose.model('Havaliman', havalimanSchema);
+var Havaliman = mongoose.model('Havalimanlari', havalimanSchema,"havalimanlari");
 // make this available to our Node applications
 module.exports = Havaliman;

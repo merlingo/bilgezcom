@@ -40,6 +40,6 @@ clientSchema.methods.comparePass = function (password) {
     var user = this;
     return bcrypt.compareSync(password, user.password);
 }
-var Musteri = mongoose.model('Musteri', clientSchema);
+var Musteri = mongoose.model('musteriler', clientSchema, "musteriler");
 // make this available to our Node applications
 module.exports = Musteri;
