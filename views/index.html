@@ -81,7 +81,20 @@
 	<![endif]-->
 
 	</head>
+    
+    
+    
 	<body>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 		<div id="fh5co-wrapper">
 		<div id="fh5co-page">
             
@@ -101,16 +114,11 @@
 							<li class="active">
 							<li>
                                 <li>
-                            
-						<button type="button" class="btn btn-check-login" data-toggle="modal" data-target="#sem-reg">Kayıt ol
-</button>	
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sem-login">Giriş
-  </button><i class="icon-profile-male">
-                                    </i>
+                           
 							</li>
-                          
+                           
 						<h2></h2>
-  						
+  						<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Oturum aç</button>
 						</ul>
   
  
@@ -590,115 +598,135 @@
 	</div>
 	<!-- END fh5co-page -->
             
-            
 
 
-
-<!-- The Modal -->
-<div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-reg">
-  <div class="modal-dialog modal-dialog-centered">
+<!-- Modal -->
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin" data-toggle="tab">Giriş</a></li>
+              <li class=""><a href="#signup" data-toggle="tab">Kayıt Ol</a></li>
+                
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in" id="why">
+        <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+        <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>JoeSixPack@Sixpacksrus.com</a> for any other inquiries.</p>
+        </div>
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Kullanıcı Adı:</label>
+              <div class="controls">
+                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="" class="input-medium" required="">
+              </div>
+            </div>
 
-      <!-- Modal body -->
-      <div class="modal-body seminor-login-modal-body">
-       <h5 class="modal-title text-center">Yeni Hesap oluştur</h5>
-        <button type="button" class="close" data-dismiss="modal">
-            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-        </button>
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Şifre:</label>
+              <div class="controls">
+                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="" class="input-medium">
+              </div>
+            </div>
 
+            <!-- Multiple Checkboxes (inline) -->
+            <div class="control-group">
+              <label class="control-label" for="rememberme"></label>
+              <div class="controls">
+                <label class="checkbox inline" for="rememberme-0">
+                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                  Beni Hatırla
+                </label>
+              </div>
+            </div>
 
-  <form class="seminor-login-form">
-    <div class="form-group">
-      <input type="name" class="form-control" required autocomplete="off">
-      <label class="form-control-placeholder" for="name">Kullanıcı Adı</label>
-    </div>
-    <div class="form-group">
-      <input type="email" class="form-control" required autocomplete="off">
-      <label class="form-control-placeholder" for="name">Email address</label>
-    </div>
-    
-    <div class="form-group">
-      <input type="password" class="form-control" required autocomplete="off">
-      <label class="form-control-placeholder" for="password">Şifre</label>
-    </div>
-    <div class="form-group">
-      <input type="password" class="form-control" required autocomplete="off">
-      <label class="form-control-placeholder" for="password">Şifre onay</label>
-    </div>
-
-      <div class="btn-check-log">
-          <button type="submit" class="btn-check-login">KAYIT</button>
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-success">Giriş</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="Email">Email:</label>
+              <div class="controls">
+                <input id="Email" name="Email" class="form-control" type="text" placeholder="" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Kullanıcı Adı:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="password">Şifre:</label>
+              <div class="controls">
+                <input id="password" name="password" class="form-control" type="password" placeholder="" class="input-large" required="">
+                <em>max.8 karakter</em>
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="reenterpassword">Şifre Tekrar:</label>
+              <div class="controls">
+                <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Multiple Radios (inline) -->
+            <br>
+            <div class="control-group">
+              <label class="control-label" for="humancheck">Kontrol:</label>
+              <div class="controls">
+                
+                <label class="radio inline" for="humancheck-1">
+                  <input type="radio" name="humancheck" id="humancheck-1" value="human">Ben İnsanım</label>
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Kayıt</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
       </div>
-      <div class="create-new-fau text-center pt-3">
-      <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-login" data-dismiss="modal">Zaten bir hesaba sahibim.</span></a>
+    </div>
       </div>
-    </form>
-
+      <div class="modal-footer">
+      <center>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+        </center>
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-  <!-- The Modal -->
-  <div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-login">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-
-        <!-- Modal body -->
-        <div class="modal-body seminor-login-modal-body">
-         <h5 class="modal-title text-center">Hesap Girişi</h5>
-          <button type="button" class="close" data-dismiss="modal">
-              <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-          </button>
-
-
-    <form class="seminor-login-form">
-      <div class="form-group">
-        <input type="email" class="form-control" required autocomplete="off">
-        <label class="form-control-placeholder" for="name">Email address</label>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" required autocomplete="off">
-        <label class="form-control-placeholder" for="password">Şifre</label>
-      </div>
-      <div class="form-group">
-        <label class="container-checkbox">
-        Beni Hatırla
-        <input type="checkbox" checked="checked" required>
-        <span class="checkmark-box"></span>
-        </label>
-        </div>
-
-        <div class="btn-check-log">
-            <button type="submit" class="btn-check-login">Giriş</button>
-        </div>
-        <div class="col-md-offset-3 col-md-9">
-            <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button><a href="https://www.facebook.com/"></a>
-                                    </div>    
-
-
-       <div class="forgot-pass-fau text-center pt-3">
-                                 <a href="/reset_pass" class="text-secondary">Şifremi Unuttum?</a>
-
-                               </div>
-                               <div class="create-new-fau text-center pt-3">
-                                   <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-reg" data-dismiss="modal">Yeni hesap oluştur</span></a>
-                               </div>
-
-
-
-      </form>
-
-        </div>
-      </div>
-    </div>
-  
-
-</div>
-        </div>
+        
             
             
             
@@ -735,6 +763,14 @@
 	
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
-
+        
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+	Weglot.setup({
+	  api_key: 'wg_bcbfbc980101bb59a18f97089297f5491',
+	  originalLanguage: 'tr',
+	  destinationLanguages : 'fr,es,en',
+	 });
+</script>
 	</body>
 </html>

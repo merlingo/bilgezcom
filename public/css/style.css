@@ -14,17 +14,10 @@
 
 
 
-
-
-
-
-
-
-
 body {
   font-family: "calibri", calibri, sans-serif;
-  line-height: 1.0;
-  font-size: 28px;
+  line-height: 0.7;
+  font-size: 16px;
   background: #fff;
   color: #848484;
   font-weight: 300;
@@ -623,7 +616,7 @@ figure {
 }
 
 .tab-content {
-  padding: 30px;
+  padding: 20px;
 }
 .tab-content .btn {
   border: 1px solid red !important;
@@ -1828,7 +1821,7 @@ a.s3-btn5 {
   letter-spacing: 0;
   text-transform: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .js .animate-box {
