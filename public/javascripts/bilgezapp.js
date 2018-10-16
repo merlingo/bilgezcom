@@ -1,7 +1,7 @@
 ﻿//#################INDEX.HTML ICIN ANGULARJS KODLARI BURAYA YAZILACAK#############
 'use strict';
 /* App Module */
-var bilgezApp = angular.module('bilgez', ['ngRoute', 'bilgezControllers']);
+var bilgezApp = angular.module('bilgez', ['ngRoute', 'bilgezControllers','authService']);
 bilgezApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider.
@@ -10,7 +10,7 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
                 controller: 'ucusCtrl'
             }).when('/ucus', {
                 templateUrl: '/partials/ucusarama.html',
-                controller: 'ucusCtrl'
+                controller: 'ucusAramaCtrl'
             });
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);

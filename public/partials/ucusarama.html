@@ -16,135 +16,70 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="flights">
-                                <div class="row">
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <div class="input-field">
-                                            <label for="from-place">Nereden:</label>
-                                            <input type="text" class="form-control" id="from-place" placeholder="" />
+                            <form >
+                                <div role="tabpanel" class="tab-pane active" id="flights">
+                                    <div class="row">
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <div class="input-field">
+                                                <label for="from-place">Nereden:</label>
+                                                <input type="text" class="form-control" id="from-place" placeholder="" ng-model="ucusgirdi.nereden" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <div class="input-field">
-                                            <label for="to-place">Nereye:</label>
-                                            <input type="text" class="form-control" id="to-place" placeholder="" />
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <div class="input-field">
+                                                <label for="to-place">Nereye:</label>
+                                                <input type="text" class="form-control" id="to-place" placeholder="" ng-model="ucusgirdi.nereye" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                        <div class="input-field">
-                                            <label for="date-start">Check In:</label>
-                                            <input type="text" class="form-control" id="date-start" placeholder="dd/mm/yyyy" />
+                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                            <div class="input-field">
+                                                <label for="date-start">Check In:</label>
+                                                <input type="text" class="form-control" id="date-start" placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkin" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                        <div class="input-field">
-                                            <label for="date-end">Check Out:</label>
-                                            <input type="text" class="form-control" id="date-end" placeholder="dd/mm/yyyy" />
+                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                            <div class="input-field">
+                                                <label for="date-end">Check Out:</label>
+                                                <input type="text" class="form-control" id="date-end" placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkout" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 mt">
+                                        <div class="col-sm-12 mt">
 
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <section>
-                                            <label for="yetismus">Yetişkin:</label>
-                                            <select class="form-control" id="yetismus">
-                                                <option value="" disabled selected>1</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <section>
-                                            <label for="cocukmus">Çocuk:</label>
-                                            <select class="form-control" id="cocukmus">
-                                                <option value="" disabled selected>1</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <!--<input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara">-->
-                                        <a class="btn btn-primary btn-block" href="#!ucus">Uçuş Ara</a>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <label for="yetismus">Yetişkin:</label>
+                                                <select class="form-control" id="yetismus">
+                                                    <option value="" disabled selected>1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <label for="cocukmus">Çocuk:</label>
+                                                <select class="form-control" id="cocukmus">
+                                                    <option value="" disabled selected>1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <!--<input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara">-->
+                                            <input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara" ng-click="ucusara(ucusgirdi)">
 
-                                        #!blogPost/{{blogPost._id}}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
 
-
-                            <div role="tabpanel" class="tab-pane" id="packages">
-                                <div class="row">
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <div class="input-field">
-                                            <label for="from-place">City:</label>
-                                            <input type="text" class="form-control" id="from-place1" placeholder="Los Angeles, USA" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <div class="input-field">
-                                            <label for="to-place">Destination:</label>
-                                            <input type="text" class="form-control" id="to-place1" placeholder="Tokyo, Japan" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                        <div class="input-field">
-                                            <label for="date-start1">Departs:</label>
-                                            <input type="text" class="form-control" id="date-start1" placeholder="mm/dd/yyyy" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                        <div class="input-field">
-                                            <label for="date-end1">Return:</label>
-                                            <input type="text" class="form-control" id="date-end1" placeholder="mm/dd/yyyy" />
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 mt">
-                                        <section>
-                                            <label for="class">Rooms:</label>
-                                            <select class="cs-select cs-skin-border">
-                                                <option value="" disabled selected>1</option>
-                                                <option value="economy">1</option>
-                                                <option value="first">2</option>
-                                                <option value="business">3</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <section>
-                                            <label for="class">Adult:</label>
-                                            <select class="cs-select cs-skin-border">
-                                                <option value="" disabled selected>1</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="col-xxs-12 col-xs-6 mt">
-                                        <section>
-                                            <label for="class">Children:</label>
-                                            <select class="cs-select cs-skin-border">
-                                                <option value="" disabled selected>1</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                            </select>
-                                        </section>
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <input type="submit" class="btn btn-primary btn-block" value="Search Packages">
-                                    </div>
-                                </div>
-                            </div>
+                      
                         </div>
 
                     </div>
