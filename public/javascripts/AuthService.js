@@ -1,4 +1,4 @@
-﻿angular.module('authService', [])
+﻿ angular.module('authService', [])
     .factory('Auth', function ($http, $q, token) {
 
         var authFactory = {};
@@ -10,7 +10,24 @@
             })
                 .success(function (data) {
                     token.setToken(data.token)
-                    return data
+                    return data;
                 })
         }
+        authFactory.logout = function(){
+            token.setToken();
+        }
+        
+        authFactory.isLoggedIn = function (){
+            if(token.getToken())
+                return true;
+            else
+                return false;
+        }
+        authFactory.getuser = function(){
+            if(token.getToken())
+                return $http.get('api/me');
+            else
+                return $q.reject({ message:"User has no token" })
+        }
+        
     })
