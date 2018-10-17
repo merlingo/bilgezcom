@@ -1,7 +1,7 @@
 'use strict';
 var express = require('express');
 var Havaliman = require('../models/Havalimani')
-var ucBilge = require('../models/ucusBilgeleri')
+var ucBilge = require('../models/ucusBilgileri')
 var alinBilet = require('../models/alinanBiletler')
 
 var router = express.Router();
@@ -10,20 +10,20 @@ var router = express.Router();
 
 router.post('/havalimani', function (req, res) {
     console.log(req.body);
-    var hava = new Havaliman(req.body);
-
-    // Save the new model instance, passing a callback
-    hava.save(function (err) {
+    hvs = req.body;
+    Havaliman.insertMany(hvs, function (err, hvs) {
         if (err) {
             res.send(err);
             return
         }
         // saved!
-        res.json(hava);
+        res.json({ msg: hvs.length+" havalimani kayit edildi" });
     });
 });
-router.get('/havalimanlar', function (req, res) {
-    Havaliman.find({}, function (err, havalar) {
+router.get('/havalimanlar/:sehir', function (req, res) {
+    sehir = req.params.adi;
+    Havaliman.find({
+        "city": { $regex: ".*"+sehir+".*" }}, function (err, havalar) {
         res.send(havalar);
     });
 })
@@ -53,14 +53,20 @@ router.get('/ucus', function (req, res) {
     });
 })
 router.get('/ucus/:ucusid', function (req, res) {
-    //Arama kriterlerine gore ucuslar listelenmeli
+    //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
     ucusid = req.params.ucusid;
 
 })
 router.post('/ucus', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
-    ucusid = req.body.ucusid;
-    ab = req.body.biletbilgi;
+    ab = req.body.ucusgirdi;
+    ucBelge.find({ "nereden": ucusgirdi.nereden, "nereye": ucusgirdi.nereye, "zaman": ucusgirdi.checkin }, function (err, ucuslar) {
+        if (err) {
+            res.send(err);
+            return
+        }
+        res.send(ucuslar);
+    });
 
 })
 

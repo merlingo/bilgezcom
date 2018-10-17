@@ -49,7 +49,7 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <section>
                                                 <label for="yetismus">Yetişkin:</label>
-                                                <select class="form-control" id="yetismus">
+                                                <select class="form-control" id="yetismus" ng-model="ucusgirdi.yetismus">
                                                     <option value="" disabled selected>1</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -61,7 +61,7 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <section>
                                                 <label for="cocukmus">Çocuk:</label>
-                                                <select class="form-control" id="cocukmus">
+                                                <select class="form-control" id="cocukmus" ng-model="ucusgirdi.cocukmus">
                                                     <option value="" disabled selected>1</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -86,10 +86,11 @@
                 </div>
                 <div class="desc2 animate-box">
                     <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                        <p> <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name"></a></p>
+                        
                         <h2>En  uygun uçuşlar </h2>
                         <h3>Şimdilik sadece dünya</h3>
                         <span class="price"></span>
+                        <h4>Havalimanlarini DB ye yüklemek için basın:</h4><a type="button"class="btn btn-primary" href="#!havalimani/">Yükle</a>
                         <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
                     </div>
                 </div>

@@ -1,16 +1,32 @@
-﻿angular.module('authService', [])
-    .factory('Auth', function ($http, $q, token) {
+﻿serviceModule = angular.module('bilgezServices', ['ngResource']);
 
-        var authFactory = {};
-        authFactory.login = function (mail, password) {
+//ilk ekranda uçuşları aramak için servis
+serviceModule.factory('ucus', ['$resource', function ($resource) {
+    return $resource('/API/ucus', {}, {
+        ara:{method:'POST'}
+    });
+}]);
+//veritabanına havalimani bilgilerini toplu olarak gonderip kaydetmek için
+serviceModule.factory('havalimaniKayit', ['$resource', function ($resource) {
+    return $resource('/API/havalimani', {}, {
+        kaydet: { method: 'POST' }
+    });
+}]);
+//login icin gerekli fonksiyon icin servis
+serviceModule.factory('login', function ($http, $q, token) {
 
-            return $http.post('/membership/login', {
-                    username: username,
-                    password: password
+    var authFactory = {};
+    authFactory.login = function (mail, password) {
+
+        return $http.post('/membership/login', {
+            username: username,
+            password: password
+        })
+            .success(function (data) {
+                token.setToken(data.token)
+                return data
             })
-                .success(function (data) {
-                    token.setToken(data.token)
-                    return data
-                })
-        }
-    })
+    }
+});
+
+    

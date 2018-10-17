@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 var config = require("./config")
 
 var membership = require('./routes/membership_procedures')
+var API = require('./routes/APIs')
+
 var pages = require("./routes/pages")
 var app = express();
 
@@ -31,6 +33,8 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', pages);
 app.use('/membership', membership);
+app.use('/API', API);
+
 //app.use(redirectUnmatched);
 
 mongoose.connect(config.mongoUrl, config.connectionOptions, function (err) {
