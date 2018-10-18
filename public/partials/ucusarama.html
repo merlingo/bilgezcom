@@ -1,0 +1,100 @@
+﻿<div class="fh5co-overlay"></div>
+<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover.jpg);">
+    <div class="desc">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-5">
+                    <div class="tabulation animate-box">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Uçuşlar</a>
+                            </li>
+
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <form >
+                                <div role="tabpanel" class="tab-pane active" id="flights">
+                                    <div class="row">
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <div class="input-field">
+                                                <label for="from-place">Nereden:</label>
+                                                <input type="text" class="form-control" id="from-place" placeholder="" ng-model="ucusgirdi.nereden" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <div class="input-field">
+                                                <label for="to-place">Nereye:</label>
+                                                <input type="text" class="form-control" id="to-place" placeholder="" ng-model="ucusgirdi.nereye" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                            <div class="input-field">
+                                                <label for="date-start">Check In:</label>
+                                                <input type="text" class="form-control" id="date-start" placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkin" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                            <div class="input-field">
+                                                <label for="date-end">Check Out:</label>
+                                                <input type="text" class="form-control" id="date-end" placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkout" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 mt">
+
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <label for="yetismus">Yetişkin:</label>
+                                                <select class="form-control" id="yetismus" ng-model="ucusgirdi.yetismus">
+                                                    <option value="" disabled selected>1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xxs-12 col-xs-6 mt">
+                                            <section>
+                                                <label for="cocukmus">Çocuk:</label>
+                                                <select class="form-control" id="cocukmus" ng-model="ucusgirdi.cocukmus">
+                                                    <option value="" disabled selected>1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                </select>
+                                            </section>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <!--<input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara">-->
+                                            <input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara" ng-click="ucusara(ucusgirdi)">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                      
+                        </div>
+
+                    </div>
+                </div>
+                <div class="desc2 animate-box">
+                    <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+                        
+                        <h2>En  uygun uçuşlar </h2>
+                        <h3>Şimdilik sadece dünya</h3>
+                        <span class="price"></span>
+                        <h4>Havalimanlarini DB ye yüklemek için basın:</h4><a type="button"class="btn btn-primary" href="#!havalimani/">Yükle</a>
+                        <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

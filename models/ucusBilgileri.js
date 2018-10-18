@@ -14,21 +14,21 @@ var ucusBilgileriSchema = new Schema({
     },
     fiyat: [{
         ucret: String,
-        zaman: { Type: Date, default: Date.now },
+        zaman: { Type: Schema.Types.Date },
         eco: Boolean
     }],
     sure: {
-        type: String,
+        type: Schema.Types.String,
         default: "12 hrs"
     },
     
     firma: {
-        type: String,
+        type: Schema.Types.String,
         required: false
     },
-    ucaktip: String,
+    ucaktip: Schema.Types.String,
     tarih: {
-        type: Date,
+        type: Schema.Types.Date,
         required:true
     }
     
@@ -38,6 +38,6 @@ var ucusBilgileriSchema = new Schema({
 
     
 
-var ucB = mongoose.model('ucuslar', ucBilgeSchema,"ucuslar");
+var ucB = mongoose.model('ucuslar', ucusBilgileriSchema,"ucuslar");
 // make this available to our Node applications
 module.exports = ucB;
