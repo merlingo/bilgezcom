@@ -1,7 +1,7 @@
 ﻿//#################INDEX.HTML ICIN ANGULARJS KODLARI BURAYA YAZILACAK#############
 'use strict';
 /* App Module */
-var bilgezApp = angular.module('bilgez', ['ngRoute', 'bilgezControllers','bilgezServices']);
+var bilgezApp = angular.module('bilgez', ['ngRoute', 'bilgezControllers', 'bilgezServices', 'angularFileUpload']);
 bilgezApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider.

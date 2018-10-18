@@ -18,23 +18,107 @@ bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
             });
         }
     }]);
-bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit',
-    function ucusCtrl($scope, havalimaniKayit) {
-        $scope.shown = false;
-        $scope.kaydet = function (hvj) {
-            havalimaniKayit.kaydet(hvj);
-            havalimaniKayit.$promise.then(function (msg) {
-                $scope.alert = msg;
-                $scope.alertType = "success";
+bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'FileUploader',
+    function ucusCtrl($scope, havalimaniKayit, FileUploader) {
 
-            }).catch(function (e) {
-                $scope.alertType = "danger";
-                $scope.alert = e.status;
-                throw e;
-            }).finally(function () {
-                $scope.shown = "true";
-                });
-        }
+
+
+
+        $scope.shown = false;
+        var uploader = $scope.uploader = new FileUploader({
+            url: '/API/havalimani'
+        });
+        // FILTERS
+
+        // a sync filter
+        uploader.filters.push({
+            name: 'syncFilter',
+            fn: function (item /*{File|FileLikeObject}*/, options) {
+                console.log('syncFilter');
+                return this.queue.length < 10;
+            }
+        });
+
+        // an async filter
+        uploader.filters.push({
+            name: 'asyncFilter',
+            fn: function (item /*{File|FileLikeObject}*/, options, deferred) {
+                console.log('asyncFilter');
+                setTimeout(deferred.resolve, 1e3);
+            }
+        });
+
+        // CALLBACKS
+
+        uploader.onWhenAddingFileFailed = function (item /*{File|FileLikeObject}*/, filter, options) {
+            console.info('onWhenAddingFileFailed', item, filter, options);
+        };
+        uploader.onAfterAddingFile = function (fileItem) {
+            console.info('onAfterAddingFile', fileItem);
+        };
+        uploader.onAfterAddingAll = function (addedFileItems) {
+            console.info('onAfterAddingAll', addedFileItems);
+        };
+        uploader.onBeforeUploadItem = function (item) {
+            console.info('onBeforeUploadItem', item);
+        };
+        uploader.onProgressItem = function (fileItem, progress) {
+            console.info('onProgressItem', fileItem, progress);
+        };
+        uploader.onProgressAll = function (progress) {
+            console.info('onProgressAll', progress);
+        };
+        uploader.onSuccessItem = function (fileItem, response, status, headers) {
+            console.info('onSuccessItem', fileItem, response, status, headers);
+        };
+        uploader.onErrorItem = function (fileItem, response, status, headers) {
+            console.info('onErrorItem', fileItem, response, status, headers);
+        };
+        uploader.onCancelItem = function (fileItem, response, status, headers) {
+            console.info('onCancelItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteItem = function (fileItem, response, status, headers) {
+            console.info('onCompleteItem', fileItem, response, status, headers);
+        };
+        uploader.onCompleteAll = function () {
+            console.info('onCompleteAll');
+        };
+
+        console.info('uploader', uploader);
+
+
+
+        //$scope.kaydet = function () {
+        //    var f = document.getElementById('file').files[0],
+        //        r = new FileReader();
+
+        //    r.onloadend = function (e) {
+        //        var data = e.target.result;
+        //        //send your binary data via $http or $resource or do anything else with it
+        //        $scope.alertType = "primary";
+        //        $scope.shown = "true";
+        //        console.log('file is ');
+        //        console.dir(data);
+        //        $scope.alert = data;
+        //    }
+
+        //    r.readAsBinaryString(f);
+        //    var file = $scope.hvj;
+
+
+        //    //havalimaniKayit.kaydet(file,
+        //    //    function success(res) {
+        //    //        $scope.alert = res.msg;
+        //    //        $scope.alertType = "success";
+        //    //        $scope.shown = "true";
+        //    //    }, function error(e) {
+        //    //        $scope.alertType = "danger";
+        //    //        $scope.alert = e;
+        //    //        $scope.shown = "true";
+        //    //        throw e;
+        //    //    });
+                
+        //}
     }]);
 
 bilgezControllers.controller('signupCtrl', ['$scope',

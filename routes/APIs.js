@@ -1,24 +1,38 @@
 'use strict';
 var express = require('express');
 var Havaliman = require('../models/Havalimani')
-var ucBilge = require('../models/ucusBilgileri')
+var ucusModel = require('../models/ucusBilgileri')
 var alinBilet = require('../models/alinanBiletler')
 
 var router = express.Router();
-
+function validateJSON(body) {
+    try {
+        var data = JSON.parse(body);
+        // if came to here, then valid
+        return data;
+    } catch (e) {
+        // failed to parse
+        return null;
+    }
+}
 //##############Havalimani Belgeleri API################
 
 router.post('/havalimani', function (req, res) {
-    console.log(req.body);
-    hvs = req.body;
-    Havaliman.insertMany(hvs, function (err, hvs) {
-        if (err) {
-            res.send(err);
-            return
-        }
-        // saved!
-        res.json({ msg: hvs.length+" havalimani kayit edildi" });
-    });
+    var hvs = req.files;
+    console.log(hvs);
+    var data = validateJSON(hvs);
+    if (data) {
+        Havaliman.insertMany(data, function (err, kvs) {
+            if (err) {
+                console.log(err);
+                res.send(err);
+                return
+            }
+            // saved!
+            res.json({ msg: kvs.length + " havalimani kayit edildi" });
+        });
+    }
+
 });
 router.get('/havalimanlar/:sehir', function (req, res) {
     sehir = req.params.adi;
@@ -30,28 +44,6 @@ router.get('/havalimanlar/:sehir', function (req, res) {
 
 //##############ucusBilgeleri API################
 
-
-router.post('/ucus', function (req, res) {
-    console.log(req.body);
-    var bilge = new ucBilge(req.body);
-
-    // Save the new model instance, passing a callback
-    bilge.save(function (err) {
-        if (err) {
-            res.send(err);
-            return
-        }
-        // saved!
-        res.json(bilge);
-    });
-});
-
-router.get('/ucus', function (req, res) {
-    //Arama kriterlerine gore ucuslar listelenmeli
-    ucBelge.find({}, function (err, uclar) {
-        res.send(uclar);
-    });
-})
 router.get('/ucus/:ucusid', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
     ucusid = req.params.ucusid;
@@ -60,7 +52,7 @@ router.get('/ucus/:ucusid', function (req, res) {
 router.post('/ucus', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
     ab = req.body.ucusgirdi;
-    ucBelge.find({ "nereden": ucusgirdi.nereden, "nereye": ucusgirdi.nereye, "zaman": ucusgirdi.checkin }, function (err, ucuslar) {
+    ucusModel.find({ "nereden": ucusgirdi.nereden, "nereye": ucusgirdi.nereye, "zaman": ucusgirdi.checkin }, function (err, ucuslar) {
         if (err) {
             res.send(err);
             return
@@ -69,24 +61,6 @@ router.post('/ucus', function (req, res) {
     });
 
 })
-
-//##############Alinan biletleri API################
-
-router.post('/bilet', function (req, res) {
-    console.log(req.body);
-    var bilet = new alinBilet(req.body);
-
-    // Save the new model instance, passing a callback
-    bilet.save(function (err) {
-        if (err) {
-            res.send(err);
-            return
-        }
-        // saved!
-        res.json(bilet);
-    });
-});
-
 
 
 
