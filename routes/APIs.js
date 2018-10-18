@@ -3,6 +3,8 @@ var express = require('express');
 var Havaliman = require('../models/Havalimani')
 var ucusModel = require('../models/ucusBilgileri')
 var alinBilet = require('../models/alinanBiletler')
+const fs = require('fs');
+
 
 var router = express.Router();
 function validateJSON(body) {
@@ -18,17 +20,17 @@ function validateJSON(body) {
 //##############Havalimani Belgeleri API################
 
 router.post('/havalimani', function (req, res) {
-    var hvs = req.files;
-    console.log(hvs);
+    var hvs = req.files.file.data.toString('utf8');
     var data = validateJSON(hvs);
     if (data) {
+        console.log("json dosyasi:" + data[0]);
         Havaliman.insertMany(data, function (err, kvs) {
             if (err) {
                 console.log(err);
                 res.send(err);
                 return
             }
-            // saved!
+             //saved!
             res.json({ msg: kvs.length + " havalimani kayit edildi" });
         });
     }

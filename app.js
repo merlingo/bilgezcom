@@ -8,12 +8,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require("./config")
-
+const fileUpload = require('express-fileupload');
 var membership = require('./routes/membership_procedures')
 var API = require('./routes/APIs')
 
 var pages = require("./routes/pages")
 var app = express();
+app.use(fileUpload());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
