@@ -21,7 +21,7 @@ bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
 bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'FileUploader',
     function ucusCtrl($scope, havalimaniKayit, FileUploader) {
 
-
+        //json dosyasını parse etmeli ve teker teker eklemeli - hepsini gönderince problem oluyor
 
 
         $scope.shown = false;
@@ -60,6 +60,7 @@ bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'Fi
             console.info('onAfterAddingAll', addedFileItems);
         };
         uploader.onBeforeUploadItem = function (item) {
+            console.log('item yuklenmeden once soyleyeceklerim var:' + item.toString());
             console.info('onBeforeUploadItem', item);
         };
         uploader.onProgressItem = function (fileItem, progress) {
@@ -69,6 +70,7 @@ bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'Fi
             console.info('onProgressAll', progress);
         };
         uploader.onSuccessItem = function (fileItem, response, status, headers) {
+            console.log("response burada:" + response.msg);
             console.info('onSuccessItem', fileItem, response, status, headers);
         };
         uploader.onErrorItem = function (fileItem, response, status, headers) {

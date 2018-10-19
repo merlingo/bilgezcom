@@ -21,19 +21,53 @@ function validateJSON(body) {
 
 router.post('/havalimani', function (req, res) {
     var hvs = req.files.file.data.toString('utf8');
+
     var data = validateJSON(hvs);
-    if (data) {
-        console.log("json dosyasi:" + data[0]);
-        Havaliman.insertMany(data, function (err, kvs) {
-            if (err) {
-                console.log(err);
-                res.send(err);
-                return
+    try {
+        var multiplesave = function (bigjson) {
+            var hvjson = bigjson.pop();
+            console.log(hvjson);
+            console.log(bigjson.length);
+
+            var i = 1;
+            if (!hvjson) {
+                res.json({ msg: i + " havalimani kayit edildi" });
+                return;
             }
-             //saved!
-            res.json({ msg: kvs.length + " havalimani kayit edildi" });
-        });
-    }
+
+            var hv = new Havaliman(hvjson);
+            hv.save(function (err) {
+                if (err) {
+                    console.log("2hata burada" + err);
+
+                    return res.send(err);
+                }
+
+                      multiplesave(bigjson);
+                //res.json({ msg: data.length + " havalimani kayit edildi" });
+
+            });
+        }
+        multiplesave(data);
+
+    } catch (e)
+        {
+            console.log(e);
+        }
+   // }
+    //multiplesave(hvs);
+    //if (data) {
+    //    console.log("json dosyasi:" + data[0]);
+    //    Havaliman.insertMany(data, function (err, kvs) {
+    //        if (err) {
+    //            console.log(err);
+    //            res.send(err);
+    //            return
+    //        }
+    //         //saved!
+    //        res.json({ msg: kvs.length + " havalimani kayit edildi" });
+    //    });
+    //}
 
 });
 router.get('/havalimanlar/:sehir', function (req, res) {
