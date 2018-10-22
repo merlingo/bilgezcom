@@ -22,13 +22,13 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <div class="input-field">
                                                 <label for="from-place">Nereden:</label>
-                                                <input type="text" class="form-control" id="from-place" placeholder="" ng-model="ucusgirdi.nereden" />
+                                                <input type="text" class="form-control"  placeholder=""  ng-change="hangihavalimani(ucusgirdi.nereden)"/>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <div class="input-field">
                                                 <label for="to-place">Nereye:</label>
-                                                <input type="text" class="form-control" id="to-place" placeholder="" ng-model="ucusgirdi.nereye" />
+                                                <input type="text" class="form-control" id="to-place" placeholder=""   ng-change="hangihavalimani(ucusgirdi.nereye)"/>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt alternate">

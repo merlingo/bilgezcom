@@ -8,6 +8,9 @@ bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
     function ucusCtrl($scope, $window, ucusara) {
         //ucusGirdi View Model yaratilir
         //$scope.ucusgirdi.nereden = "İstanbul";
+        $scope.ucusgirdi = {};
+        $scope.ucusgirdi.nereden = "mert";
+
         $scope.ucusara = function (ucusgirdi) {
            // $scope.ucusgirdi = { nereden: $scope.nereden };
             //http ile sunucuya gönder
@@ -16,6 +19,13 @@ bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
                 $window.alert(ucuslist[0])
 
             });
+        }
+        $scope.hangihavalimani = function () {
+            var nereden = $scope.ucusgirdi.nereden;
+            if (nereden.length > 3) {
+                $window.alert(nereden);
+
+            }
         }
     }]);
 bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'FileUploader',
