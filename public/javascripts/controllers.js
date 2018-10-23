@@ -4,12 +4,13 @@
 var bilgezControllers = angular.module('bilgezControllers', []);
 //bilgezControllers.constant("Modernizr", Modernizr);
 
-bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
-    function ucusCtrl($scope, $window, ucusara) {
+bilgezControllers.controller('ucusCtrl', ['$scope','$window','ucus','bul',
+    function ucusCtrl($scope, $window, ucus,bul) {
+
         //ucusGirdi View Model yaratilir
         //$scope.ucusgirdi.nereden = "İstanbul";
         $scope.ucusgirdi = {};
-        $scope.ucusgirdi.nereden = "mert";
+        $scope.ucusgirdi.nereden = "a";
 
         $scope.ucusara = function (ucusgirdi) {
            // $scope.ucusgirdi = { nereden: $scope.nereden };
@@ -20,11 +21,15 @@ bilgezControllers.controller('ucusCtrl', ['$scope', '$window','ucus',
 
             });
         }
-        $scope.hangihavalimani = function () {
-            var nereden = $scope.ucusgirdi.nereden;
-            if (nereden.length > 3) {
-                $window.alert(nereden);
+        $scope.hangihavalimani = function (nereden) {
 
+            if (nereden.length > 3) {
+                bul.ara({ sehir: nereden },
+                    function (response, getResponseHeaders) {
+                        $window.alert("success:" + JSON.stringify(getResponseHeaders));
+                        $window.alert("success:" + JSON.stringify(response));
+
+                    });
             }
         }
     }]);
