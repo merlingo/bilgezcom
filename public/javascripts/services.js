@@ -6,6 +6,13 @@ serviceModule.factory('ucus', ['$resource', function ($resource) {
         ara:{method:'POST'}
     });
 }]);
+
+//ilk ekranda uçuşları aramak için servis
+serviceModule.factory('bul', ['$resource', function ($resource) {
+    return $resource('/API/havalimani/:sehir', {sehir:'@sehir'}, {
+        ara: { method: 'GET', isArray: true }
+    });
+}]);
 //veritabanına havalimani bilgilerini toplu olarak gonderip kaydetmek için
 serviceModule.factory('havalimaniKayit', ['$resource', function ($resource) {
     return $resource('/API/havalimani', {}, {

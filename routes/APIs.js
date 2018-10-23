@@ -172,37 +172,54 @@ function validateJSON(body) {
 
 
 //##############Havalimani Belgeleri API################
+function multiplesave(bigjson,yuklenenler) {
+    var hvjson = bigjson.pop();
+    console.log(hvjson);
+    console.log(bigjson.length);
+    //if (yuklenenler.indexOf(hvjson) >= 0) {
+    //    console.log("CÝFTLEME OLACAKTI DURDURULDU!!!!");
+    //    return;
 
+    //}
+    if (!hvjson) {
+        return -1;
+    }
+    Havaliman.find({ code: hvjson.code }, function (err, docs) {
+        if (docs.length) {
+            console.log('Havalimani exists already');
+        } else {
+            var hv = new Havaliman(hvjson);
+
+            hv.save(function (err) {
+                if (err) {
+                    console.log("2hata burada" + err);
+
+                    return err;
+                }
+                //yuklenenler.push(hvjson);
+                multiplesave(bigjson);
+                //res.json({ msg: data.length + " havalimani kayit edildi" });
+
+            });
+        }
+    })
+   
+}
 router.post('/havalimani', function (req, res) {
     var hvs = req.files.file.data.toString('utf8');
 
     var data = validateJSON(hvs);
     try {
-        var multiplesave = function (bigjson) {
-            var hvjson = bigjson.pop();
-            console.log(hvjson);
-            console.log(bigjson.length);
+        var yuklenenler = [];
+      
+      var r =   multiplesave(data, yuklenenler);
+      if (r < 0) {
+          res.json({ msg: i + " havalimani kayit edildi" });
 
-            var i = 1;
-            if (!hvjson) {
-                res.json({ msg: i + " havalimani kayit edildi" });
-                return;
-            }
+      }
+      else
+          res.json(r);
 
-            var hv = new Havaliman(hvjson);
-            hv.save(function (err) {
-                if (err) {
-                    console.log("2hata burada" + err);
-
-                    return res.send(err);
-                }
-
-                      multiplesave(bigjson);
-                //res.json({ msg: data.length + " havalimani kayit edildi" });
-
-            });
-        }
-        multiplesave(data);
 
     } catch (e)
         {
@@ -224,11 +241,21 @@ router.post('/havalimani', function (req, res) {
     //}
 
 });
-router.get('/havalimanlar/:sehir', function (req, res) {
-    sehir = req.params.adi;
+router.get('/havalimani/:sehir', function (req, res) {
+    var sehir = req.params.sehir;
+    var reg = sehir + ".*";
+    console.log(reg)
+
     Havaliman.find({
-        "city": { $regex: ".*"+sehir+".*" }}, function (err, havalar) {
-        res.send(havalar);
+        "state": "Balochistan"//{ $regex: reg }
+    }, function (err, havalar) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+            return
+        }
+        console.log(havalar);
+        res.status(200).json(havalar);
     });
 })
 
