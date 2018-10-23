@@ -22,7 +22,10 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <div class="input-field">
                                                 <label for="from-place">Nereden:</label>
-                                                <input type="text" class="form-control"  placeholder="" ng-model="ucusgirdi.nereden"  ng-change="hangihavalimani(ucusgirdi.nereden)"/>
+                                                <input type="text" list="hvlist" class="form-control"  placeholder="" ng-model="ucusgirdi.nereden"  ng-change="hangihavalimani(ucusgirdi.nereden)"/>
+                                                <datalist id="hvlist">
+                                                    <option ng-repeat="item in hvlist" value="{{ item.name }}"></option>
+                                                </datalist>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt">

@@ -26,8 +26,7 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','ucus','bul',
             if (nereden.length > 3) {
                 bul.ara({ sehir: nereden },
                     function (response, getResponseHeaders) {
-                        $window.alert("success:" + JSON.stringify(getResponseHeaders));
-                        $window.alert("success:" + JSON.stringify(response));
+                        $scope.hvlist = response;
 
                     });
             }
