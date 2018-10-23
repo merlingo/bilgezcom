@@ -154,3 +154,47 @@ bilgezControllers.controller('signupCtrl', ['$scope',
 //                }
 //            );
 //        }]);
+
+bilgezControllers.controller('signinCtrl','authService',function($rootscope,$location,Auth){
+    
+    var vm =this;
+    
+    vm.loggedIn=Auth.isloggedIn();
+    $rootscope.$on('$routechangestart',function(){
+        vm.loggedIn=Auth.isloggedIn();
+        
+        Auth.getuser()
+        .then(function(data){
+            vm.user=data.data;
+            
+        });
+    });
+    vm.dologin=function(){
+        vm.processing=true;
+        vm.error='';
+        
+        Auth.login(vm.logindata.username, vm.loginData.password)
+            .success(function(data){
+            vm.processing=false;
+            Auth.getuser()
+            .then(function(data){
+                vm.user=data.data;
+            });
+            
+            if(data.success)
+                $location.path('/');
+            else
+                vm.error=data.message;
+            
+        });
+        
+        
+    }
+    
+    vm.dologout =function(){
+        Auth.logout();
+        $location.path('/logout')
+        
+    }
+    
+})
