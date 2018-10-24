@@ -87,13 +87,16 @@ router.post('/havalimani', function (req, res) {
     //}
 
 });
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 router.get('/havalimani/:sehir', function (req, res) {
-    var sehir = req.params.sehir;
-    var reg = sehir + ".*";
+    var sehir = capitalizeFirstLetter(req.params.sehir);
+    var reg ="^"+sehir + ".*";
     console.log(reg)
 
     Havaliman.find({
-        "state": "Balochistan"//{ $regex: reg }
+        "state": { $regex: reg }
     }, function (err, havalar) {
         if (err) {
             console.log(err);
