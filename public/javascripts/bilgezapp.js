@@ -11,10 +11,6 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
             }).when('/havalimani', {
                 templateUrl: '/partials/havalimani.html',
                 controller: 'havalimaniCtrl'
-            }).when('/signin',{
-            templateUrl: '/partials/signin.html'
-        })
-        
-        ;
+            });
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);

@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/', pages); 
+app.use('/', pages);
 app.use('/membership', membership);
 app.use('/API', API);
 
