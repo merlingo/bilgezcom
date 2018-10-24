@@ -4,13 +4,12 @@
 var bilgezControllers = angular.module('bilgezControllers', []);
 //bilgezControllers.constant("Modernizr", Modernizr);
 
-bilgezControllers.controller('ucusCtrl', ['$scope','$window','ucus','bul',
-    function ucusCtrl($scope, $window, ucus,bul) {
+bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
+    function ucusCtrl($scope, $window, $http, ucus) {
 
         //ucusGirdi View Model yaratilir
         //$scope.ucusgirdi.nereden = "İstanbul";
         $scope.ucusgirdi = {};
-        $scope.ucusgirdi.nereden = "a";
 
         $scope.ucusara = function (ucusgirdi) {
            // $scope.ucusgirdi = { nereden: $scope.nereden };
@@ -21,17 +20,16 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','ucus','bul',
 
             });
         }
-        $scope.hangihavalimani = function (nereden) {
-
-            if (nereden.length > 3) {
-                bul.ara({ sehir: nereden },
-                    function (response, getResponseHeaders) {
-                        $scope.hvlist = response;
-
-                    });
-            }
-        }
+        $scope.getLocation = function (val) {
+            if (val.length < 3)
+                return;
+            return $http.get('/API/havalimani/'+val,  {
+            }).then(function (response) {
+                return response.data;
+            });
+        };
     }]);
+
 bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'FileUploader',
     function ucusCtrl($scope, havalimaniKayit, FileUploader) {
 
