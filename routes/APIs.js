@@ -3,6 +3,7 @@ var express = require('express');
 var Havaliman = require('../models/Havalimani')
 var ucusModel = require('../models/ucusBilgileri')
 var alinBilet = require('../models/alinanBiletler')
+var config = require('../config.js')
 var secretkey = config.secretkey;
 const fs = require('fs');
 var jsonwebtoken = require('jsonwebtoken');
@@ -26,8 +27,9 @@ module.exports= function(app,express){
     var api= express.router();
     
     api.post('/signup',function(req,res){
-        
-        var.user = new user({
+
+        //Tanýmlama yaparken var.user denmis. user objesini var (variable) olarak tanýmlýyorsun. "." koymak o objenin bir fonksiyonu ya da deðiþkenine ulaþmak için kullanýlýr.
+        var user = new user({
             name: req.body.name,
             username: req.body.username,
             password: req.body.password
@@ -39,7 +41,7 @@ module.exports= function(app,express){
                 res.send(err);
                 return;
             }
-            res.json({message:'KullanÄ±cÄ± oluÅŸturuldu'});
+            res.json({message:'Kullanici Olusturuldu'});
             
         });
     });
@@ -89,7 +91,7 @@ module.exports= function(app,express){
     api.use(function(req,res,next){
         
         console.log("somebody just came to our app!");
-        var token = req.body.token | | req.param('token')  || req.headers['x-access-token'];
+        var token = req.body.token || req.param('token')  || req.headers['x-access-token'];
         
         //check if token exist
         if(token){
@@ -107,7 +109,7 @@ module.exports= function(app,express){
                 
             });
         } else {
-            res.status(403).send({success:false,message'no token povided'});
+            res.status(403).send({success:false,message:'no token povided'});
         }
         
     });
