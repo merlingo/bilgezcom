@@ -158,3 +158,48 @@ bilgezControllers.controller('signupCtrl', ['$scope',
 //                }
 //            );
 //        }]);
+
+
+
+/*
+ * Login Controller
+ */
+app.controller('login', function ($scope, $rootScope, $routeParams, $location, $http, RestApiClientService) {
+ 
+    //initially set those objects to null to avoid undefined error
+    $scope.login = {};
+ 
+    $scope.doLogin = function (customer) {
+        RestApiClientService.post('login', {
+            customer: customer
+        }).then(function (results) {
+            RestApiClientService.toast(results);
+            if (results.status == "success") {
+                $location.path('dashboard');
+            }
+        });
+    };
+});
+
+
+/*
+ * SignUp Controller
+ */
+app.controller('signup', function ($scope, $rootScope, $routeParams, $location, $http, RestApiClientService) {
+ 
+    $scope.signup = {};
+ 
+    $scope.signup = {email:'',password:'',name:'',phone:'',address:''};
+ 
+    $scope.signUp = function (customer) {
+        RestApiClientService.post('signup', {
+            customer: customer
+        }).then(function (results) {
+            RestApiClientService.toast(results);
+            if (results.status == "success") {
+                $location.path('dashboard');
+            }
+        });
+    };
+ 
+});

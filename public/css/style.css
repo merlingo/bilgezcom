@@ -391,9 +391,9 @@ figure {
 #fh5co-logo {
   position: relative;
   z-index: 2;
-  font-size: 28px;
+  font-size: 24px;
   text-transform: uppercase;
-  margin-top: 35px;
+  margin-top: 8px;
   font-weight: 700;
   float: left;
   padding-left: 40px;
