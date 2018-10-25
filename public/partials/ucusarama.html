@@ -31,7 +31,7 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <div class="input-field">
                                                 <label for="to-place">Nereye:</label>
-                                                <input type="text" class="form-control"  placeholder=""  ng-model="ucusgirdi.nereye" uib-typeahead="hv.name for hv in getLocation($viewValue)" typeahead-loading="loadingLocations"/>
+                                                <input type="text" class="form-control"  placeholder=""  ng-model="ucusgirdi.nereye" uib-typeahead="hv as hv.name for hv in getLocation($viewValue)" typeahead-loading="loadingLocations"/>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt alternate">
