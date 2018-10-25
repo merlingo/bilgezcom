@@ -20,6 +20,20 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
 
             });
         }
+        $scope.popup = {};
+        $scope.popup = {
+            acik: false 
+        }
+        $scope.datesecac = function () {
+            $scope.popup.acik = true;
+        }
+        $scope.popup2 = {};
+        $scope.popup2 = {
+            acik: false
+        }
+        $scope.datesecac2 = function () {
+            $scope.popup2.acik = true;
+        }
         $scope.getLocation = function (val) {
             if (val.length < 3)
                 return;
