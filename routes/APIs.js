@@ -128,6 +128,35 @@ router.post('/ucus', function (req, res) {
     });
 
 })
+router.post('/ucuskayit', function (req, res) {
+    //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
+    var ucusgirdi = req.body;
+    console.log(ucusgirdi);
+    var queryNereden = Havaliman.findOne({ code: ucusgirdi.nereden });
+    var queryNereye = Havaliman.findOne({ code: ucusgirdi.nereye });
+
+    queryNereden.then(function (nereden) {
+        queryNereye.then(function (nereye) {
+            var ucus = new ucusModel({
+                nereden: nereden._id,
+                nereye: nereye._id,
+                sure: ucusgirdi.sure,
+                firma: ucusgirdi.firma,
+                ucaktip: ucusgirdi.ucaktip,
+                tarih: new Date(ucusgirdi.tarih)
+            });
+            ucus.save(function (err) {
+                if (err) {
+                    console.log("2hata burada" + err);
+                    res.send(err);
+                    return err;
+                }
+                res.json({ msg: "basari ile kayit edildi" });
+                });
+        });
+    });
+
+})
 
 
 
