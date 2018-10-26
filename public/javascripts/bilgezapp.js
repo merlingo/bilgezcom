@@ -29,7 +29,7 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
                 controller: 'signup'
             })
             .otherwise({
-                redirectTo: '/partials/main.html'
+                redirectTo: '/'
             });
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);

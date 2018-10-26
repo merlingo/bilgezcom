@@ -13,7 +13,7 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
 
         $scope.ucusara = function (ucusgirdi) {
             // $scope.ucusgirdi = { nereden: $scope.nereden };
-            $window.alert(ucusgirdi);
+            //$window.alert(ucusgirdi);
             //http ile sunucuya gönder
             ucus.ara(ucusgirdi);
             ucus.$promise.then(function (ucuslist) {

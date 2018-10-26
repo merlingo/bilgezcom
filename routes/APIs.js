@@ -117,7 +117,8 @@ router.get('/ucus/:ucusid', function (req, res) {
 })
 router.post('/ucus', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
-    ab = req.body.ucusgirdi;
+    var ucusgirdi = req.body.ucusgirdi;
+    console.log(ucusgirdi);
     ucusModel.find({ "nereden": ucusgirdi.nereden, "nereye": ucusgirdi.nereye, "zaman": ucusgirdi.checkin }, function (err, ucuslar) {
         if (err) {
             res.send(err);
@@ -132,3 +133,4 @@ router.post('/ucus', function (req, res) {
 
 
 module.exports = router;
+    
