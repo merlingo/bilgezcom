@@ -1,9 +1,10 @@
 <div class="breadcrumbs" id="breadcrumbs">
     <ul class="breadcrumb">
         <li>
-            <a href="/">Home</a>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a href="#!">Anasayfa</a>
         </li>
-        <li class="active">SignUp</li>
+        <li class="active">Kayit</li>
     </ul>
 </div>
 <div class="page-content">
@@ -18,6 +19,7 @@
                         </h2>
 
                         <br/>
+                        <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
                         <form name="signupForm" class="form-horizontal" role="form" style="padding-top: 20px;">
                             <div class="form-group">
                                 <label class="col-sm-5 control-label no-padding-right" for="email">Email</label>
@@ -83,7 +85,7 @@
                             </div>
                             </fieldset>
                             <span class="lbl col-sm-5"> </span>
-                            <div class="col-sm-7">Already have an account? <a href="#/login">SignIn</a>
+                            <div class="col-sm-7">Already have an account? <a href="#!/login">SignIn</a>
                             </div>
                         </form>
                     </div>

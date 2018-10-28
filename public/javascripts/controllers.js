@@ -12,13 +12,28 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
         $scope.ucusgirdi = {};
 
         $scope.ucusara = function (ucusgirdi) {
-           // $scope.ucusgirdi = { nereden: $scope.nereden };
+            // $scope.ucusgirdi = { nereden: $scope.nereden };
+            //$window.alert(ucusgirdi);
             //http ile sunucuya gönder
             ucus.ara(ucusgirdi);
             ucus.$promise.then(function (ucuslist) {
                 $window.alert(ucuslist[0])
 
             });
+        }
+        $scope.popup = {};
+        $scope.popup = {
+            acik: false 
+        }
+        $scope.datesecac = function () {
+            $scope.popup.acik = true;
+        }
+        $scope.popup2 = {};
+        $scope.popup2 = {
+            acik: false
+        }
+        $scope.datesecac2 = function () {
+            $scope.popup2.acik = true;
         }
         $scope.getLocation = function (val) {
             if (val.length < 3)
@@ -99,70 +114,13 @@ bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'Fi
         };
 
         console.info('uploader', uploader);
-
-
-
-        //$scope.kaydet = function () {
-        //    var f = document.getElementById('file').files[0],
-        //        r = new FileReader();
-
-        //    r.onloadend = function (e) {
-        //        var data = e.target.result;
-        //        //send your binary data via $http or $resource or do anything else with it
-        //        $scope.alertType = "primary";
-        //        $scope.shown = "true";
-        //        console.log('file is ');
-        //        console.dir(data);
-        //        $scope.alert = data;
-        //    }
-
-        //    r.readAsBinaryString(f);
-        //    var file = $scope.hvj;
-
-
-        //    //havalimaniKayit.kaydet(file,
-        //    //    function success(res) {
-        //    //        $scope.alert = res.msg;
-        //    //        $scope.alertType = "success";
-        //    //        $scope.shown = "true";
-        //    //    }, function error(e) {
-        //    //        $scope.alertType = "danger";
-        //    //        $scope.alert = e;
-        //    //        $scope.shown = "true";
-        //    //        throw e;
-        //    //    });
-                
-        //}
     }]);
-
-bilgezControllers.controller('signupCtrl', ['$scope',
-    function ucusCtrl($scope) {
-
-        //$scope.browser = {
-        //    supportNumberInput: Modernizr.inputtypes.number
-        //};
-    }]);
-//bilgezControllers.controller('BlogViewCtrl',
-//    ['$scope', '$routeParams', 'BlogPost',
-//        function BlogViewCtrl($scope, $routeParams, BlogPost) {
-//            var blogId = $routeParams.id;
-//            BlogPost.get({ id: blogId },
-//                function success(response) {
-//                    console.log("Success:" + JSON.stringify(response));
-//                    $scope.blogEntry = response;
-//                },
-//                function error(errorResponse) {
-//                    console.log("Error:" + JSON.stringify(errorResponse));
-//                }
-//            );
-//        }]);
-
 
 
 /*
  * Login Controller
  */
-app.controller('login', function ($scope, $rootScope, $routeParams, $location, $http, RestApiClientService) {
+bilgezControllers.controller('login', ['$scope', '$location','RestApiClientService', function ($scope, $location, RestApiClientService) {
  
     //initially set those objects to null to avoid undefined error
     $scope.login = {};
@@ -173,31 +131,27 @@ app.controller('login', function ($scope, $rootScope, $routeParams, $location, $
         }).then(function (results) {
             RestApiClientService.toast(results);
             if (results.status == "success") {
-                $location.path('dashboard');
+                $location.path('#!/');
             }
         });
     };
-});
-
-
+}]);
 /*
  * SignUp Controller
  */
-app.controller('signup', function ($scope, $rootScope, $routeParams, $location, $http, RestApiClientService) {
+bilgezControllers.controller('signup', ['$scope', '$location', 'RestApiClientService', function ($scope, $location, RestApiClientService) {
  
     $scope.signup = {};
- 
+    $scope.alerts = [];
     $scope.signup = {email:'',password:'',name:'',phone:'',address:''};
  
     $scope.signUp = function (customer) {
-        RestApiClientService.post('signup', {
-            customer: customer
-        }).then(function (results) {
+        RestApiClientService.post('signup', customer).then(function (results) {
             RestApiClientService.toast(results);
             if (results.status == "success") {
-                $location.path('dashboard');
+                $scope.alerts.push( "basarili");
+                //$location.path('#!/');
             }
         });
     };
- 
-});
+}]);

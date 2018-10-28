@@ -7,7 +7,21 @@ var router = express.Router();
 router.post('/signup', function (req, res) {
     console.log(req.body);
     var client = new Client(req.body);
-
+    console.log(client);
+    // Save the new model instance, passing a callback
+    client.save(function (err) {
+        if (err) {
+            res.send(err);
+            return
+        }
+        // saved!
+        res.json(client);
+    });
+});
+router.post('/signin', function (req, res) {
+    console.log(req.body);
+    var client = new Client(req.body);
+    console.log(client);
     // Save the new model instance, passing a callback
     client.save(function (err) {
         if (err) {

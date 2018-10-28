@@ -1,7 +1,7 @@
 ﻿//#################INDEX.HTML ICIN ANGULARJS KODLARI BURAYA YAZILACAK#############
 'use strict';
 /* App Module */
-var bilgezApp = angular.module('bilgez', ['ngRoute', 'bilgezControllers', 'bilgezServices', 'angularFileUpload', "ui.bootstrap"]);
+var bilgezApp = angular.module('bilgez', ['ngRoute', 'ngAnimate', 'toaster', 'bilgezControllers', 'bilgezServices', 'angularFileUpload', "ui.bootstrap"]);
 bilgezApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider.
@@ -20,7 +20,7 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
             })
             .when('/logout', {
                 title: 'Logout',
-                templateUrl: 'partials/login.html',
+                templateUrl: 'partials/main.html',
                 controller: 'login'
             })
             .when('/signup', {
@@ -28,19 +28,40 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/signup.html',
                 controller: 'signup'
             })
-            .when('/dashboard', {
-                title: 'Dashboard',
-                templateUrl: 'partials/dashboard.html',
-                controller: 'dashboard'
-            })
-            .when('/', {
-                title: 'Login',
-                templateUrl: 'partials/login.html',
-                controller: 'login',
-                role: '0'
-            })
             .otherwise({
-                redirectTo: '/login'
+                redirectTo: '/'
             });
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);
+bilgezApp.directive('focus', function () {
+    return function (scope, element) {
+        element[0].focus();
+    }
+});
+
+bilgezApp.directive('passwordMatch', [function () {
+    return {
+        restrict: 'A',
+        scope: true,
+        require: 'ngModel',
+        link: function (scope, elem, attrs, control) {
+            var checker = function () {
+
+                //get the value of the first password
+                var e1 = scope.$eval(attrs.ngModel);
+
+                //get the value of the other password  
+                var e2 = scope.$eval(attrs.passwordMatch);
+                if (e2 != null)
+                    return e1 == e2;
+            };
+            scope.$watch(checker, function (n) {
+
+                //set the form control to valid if both 
+                //passwords are the same, else invalid
+                control.$setValidity("passwordNoMatch", n);
+            });
+        }
+    };
+}]);
+

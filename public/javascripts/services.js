@@ -1,4 +1,4 @@
-﻿serviceModule = angular.module('bilgezServices', ['ngResource']);
+﻿serviceModule = angular.module('bilgezServices', ['ngResource', 'ngAnimate', 'toaster']);
 
 //ilk ekranda uçuşları aramak için servis
 serviceModule.factory('ucus', ['$resource', function ($resource) {
@@ -37,11 +37,16 @@ serviceModule.factory('login', function ($http, $q, token) {
 });
 
 //login and sign up servisi
-
-app.factory("RestApiClientService", ['$http', 'toaster',
+//{
+//    method: 'POST',
+//        url: url,
+//            data: data,
+//                timeout: 4000
+//}
+serviceModule.factory("RestApiClientService", ['$http', 'toaster',
     function ($http, toaster) { // This service connects to our REST API
 
-        var serviceBase = 'api/v1/web/index.php/';
+        var serviceBase = '/membership/';
 
         var obj = {};
         obj.toast = function (data) {
@@ -49,21 +54,34 @@ app.factory("RestApiClientService", ['$http', 'toaster',
         }
         obj.get = function (q) {
             return $http.get(serviceBase + q).then(function (results) {
+                if(q=="login")
+                    token.setToken(results.data.token)
                 return results.data;
             });
         };
-        obj.post = function (q, object) {
 
-            obj.post = function (q, object) {
-                return $http.post(serviceBase + q, object).then(function (results) {
+       obj.post = function (q, object) {
+           var parameter = JSON.stringify(object);
+             return $http({
+                    method: 'POST',
+                    url: serviceBase + q,
+                    data: parameter,
+                    timeout: 4000,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (results) {
+                    if (q == "login")
+                        token.setToken(results.data.token)
+                    console.log("kayit edildi!");
+                    console.log(results.data);
                     return results.data;
-                },function(results){
+                },function(e){
 
-                    var err = {status:"error",message:"An Internal Error Occured"};
+                    var err = {status:"error",message:"An Internal Error Occured", content:e};
                     return err;
                 });
             };
-        };
 
         obj.put = function (q, object) {
             return $http.put(serviceBase + q, object).then(function (results) {

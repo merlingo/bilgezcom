@@ -16,7 +16,19 @@
                             </li>
 
                         </ul>
+                        <style>
+                            .full button span {
+                                background-color: limegreen;
+                                border-radius: 32px;
+                                color: black;
+                            }
 
+                            .partially button span {
+                                background-color: orange;
+                                border-radius: 32px;
+                                color: black;
+                            }
+                        </style>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <form >
@@ -31,20 +43,27 @@
                                         <div class="col-xxs-12 col-xs-6 mt">
                                             <div class="input-field">
                                                 <label for="to-place">Nereye:</label>
-                                                <input type="text" class="form-control"  placeholder=""  ng-model="ucusgirdi.nereye" uib-typeahead="hv.name for hv in getLocation($viewValue)" typeahead-loading="loadingLocations"/>
+                                                <input type="text" class="form-control"  placeholder=""  ng-model="ucusgirdi.nereye" uib-typeahead="hv as hv.name for hv in getLocation($viewValue)" typeahead-loading="loadingLocations"/>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt alternate">
                                             <div class="input-field">
                                                 <label for="date-start">Check In:</label>
-                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkin" />
+                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy" uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkin" is-open="popup.acik"   close-text="Kapat"/>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary btn-sm" ng-click="datesecac()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="col-xxs-12 col-xs-6 mt alternate">
                                             <div class="input-field">
                                                 <label for="date-end">Check Out:</label>
-                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy" ng-model="ucusgirdi.checkout" />
+                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy"  uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkout" is-open="popup2.acik"  close-text="Kapat"/>
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary btn-sm" ng-click="datesecac2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-sm-12 mt">
 
