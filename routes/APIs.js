@@ -134,7 +134,7 @@ router.post('/ucuskayit', function (req, res) {
     console.log(ucusgirdi);
     var queryNereden = Havaliman.findOne({ code: ucusgirdi.nereden });
     var queryNereye = Havaliman.findOne({ code: ucusgirdi.nereye });
- 
+
     queryNereden.then(function (nereden) {
         queryNereye.then(function (nereye) {
             var ucus = new ucusModel({

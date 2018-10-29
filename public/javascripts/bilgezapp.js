@@ -64,4 +64,3 @@ bilgezApp.directive('passwordMatch', [function () {
         }
     };
 }]);
-

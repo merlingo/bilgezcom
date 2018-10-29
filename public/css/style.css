@@ -209,10 +209,10 @@ figure {
   }
 }
 .fh5co-cover .desc {
-  top: 25%;
+  top: 26%;
   position: absolute;
-  width: 1%;
-  margin-top: -90px;
+  width: 67%;
+  margin-top: -50px;
   z-index: 2;
   color: #fff;
 }
@@ -393,7 +393,7 @@ figure {
   z-index: 2;
   font-size: 24px;
   text-transform: uppercase;
-  margin-top: 1px;
+  margin-top: 8px;
   font-weight: 700;
   float: left;
   padding-left: 1px;
@@ -616,7 +616,7 @@ figure {
 }
 
 .tab-content {
-  padding: 20px;
+  padding: 25px;
 }
 .tab-content .btn {
   border: 1px solid red !important;
@@ -1635,7 +1635,7 @@ div.cs-select span {
 
 #footer {
   background: #393e46;
-  padding: 1px 0 1px;
+  padding: 10px 0 10px;
 }
 #footer p {
   color: rgba(255, 255, 255, 0.7);
@@ -1648,7 +1648,7 @@ div.cs-select span {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 #footer .fh5co-footer-link {
-  padding-bottom: 3px;
+  padding-bottom: 30px;
 }
 #footer .fh5co-footer-link h3 {
   color: #fff;
@@ -1691,7 +1691,7 @@ div.cs-select span {
 
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family:'calibri', 'Open Sans', sans-serif;
   background-image: url(http://takeinsocialmedia.com/wp-content/uploads/2014/04/blurred-background-images-photos-0322125813.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -1792,11 +1792,11 @@ a.s3-btn5 {
   background: #337ab7;
   color: #fff;
   border: none !important;
-  border: 1px solid transparent !important;
+  border: 2px solid transparent !important;
 }
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
   box-shadow: none;
-  background: #F78536;
+  background: #337ab7;
   color: #fff !important;
 }
 .btn:hover, .btn:active, .btn:focus {
@@ -1819,9 +1819,9 @@ a.s3-btn5 {
 
 .tab-content .btn {
   letter-spacing: 0;
-  text-transform: fixed;
+  text-transform: none;
   font-weight: bold;
-  
+  font-size: 14px;
 }
 
 .js .animate-box {
@@ -1927,7 +1927,7 @@ a.s3-btn5 {
   width: 30px;
   height: 2px;
   color: #fff;
-  font: bold 14px/.4 Helvetica;
+  font: bold 14px/.4 calibri;
   text-transform: uppercase;
   text-indent: -55px;
   background: #fff;
@@ -2277,16 +2277,8 @@ button.btn-check-login:hover {
 
 
 
-
-
-
-
-body{
-	padding-top: 20px;
-}
-
- ng-cloak 
-[ng\cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak {
+/* ng-cloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak {
     display: none;
 }
 ul{
@@ -2326,11 +2318,13 @@ ul.simple-post-list {
 position: relative;
 border-bottom: 1px solid #E5E5E5;
 background-color: #F5F5F5;
-
-
 }
 .breadcrumb{
-	margin-bottom:0 ;
+	padding: 2px 1px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 2px;
 }
 .cart-btn{
 	border-radius:0;
@@ -2338,8 +2332,8 @@ background-color: #F5F5F5;
 .navbar {
 	border-radius: 0;
 	
-background: #438EB9;
-color: #fff;border: 0;
+/*background: #438EB9;
+color: #fff;border: 0;*/
 
 }
 /* Removed width:auto from navbar-collapse classs; */
@@ -2348,23 +2342,16 @@ border-top: 0;
 box-shadow: none;
 }
 .navbar .navbar-brand {
-*color: #FFF;
+/*color: #FFF;
 font-size: 24px;
 text-shadow: none;
-padding-bottom: 10px;
+padding-bottom: 10px;*/
 }
 .form-group-addon{
-	padding-left: -20px;
+	padding-left: -2px;
 }
 
-.full button span {
-background-color: limegreen;
-border-radius: 3px;
-color: black;
-}
 
-.partially button span {
-background-color: orange; 
-border-radius: 3px;
-color: black;
+
+
 /*# sourceMappingURL=style.css.map */
