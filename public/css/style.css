@@ -195,10 +195,7 @@ figure {
     padding: 3em 0;
   }
 }
-.fh5co-cover .btn {
-  padding: 1em 2em;
-  opacity: .9;
-}
+
 .fh5co-cover.fh5co-cover_2 {
   height: 600px;
 }
@@ -995,7 +992,7 @@ div.cs-select span {
 }
 .feature-left .icon i {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: bottom;
   font-size: 40px;
   color: #F78536;
 }
@@ -1819,7 +1816,7 @@ a.s3-btn5 {
 
 .tab-content .btn {
   letter-spacing: 0;
-  text-transform: none;
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
 }
