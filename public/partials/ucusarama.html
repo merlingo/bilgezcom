@@ -51,7 +51,7 @@
                                                 <label for="date-start">Check In:</label>
                                                 <input type="text" class="form-control"  placeholder="dd/mm/yyyy" uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkin" is-open="popup.acik"  close-text="Kapat"/>
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-primary btn-sm" ng-click="datesecac()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                    <button type="button" class="btn btn-primary btn-sm full" ng-click="datesecac()"><i class="glyphicon glyphicon-calendar"></i></button>
                                                 </span>
                                             </div>
                                         </div>
@@ -71,8 +71,7 @@
                                             <section>
                                                 <label for="yetismus">Yetişkin:</label>
                                                 <select class="form-control" id="yetismus" ng-model="ucusgirdi.yetismus">
-                                                    <option value="" disabled selected>1</option>
-                                                    <option value="1">1</option>
+                                                    <option value="1" selected>1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>
@@ -83,8 +82,7 @@
                                             <section>
                                                 <label for="cocukmus">Çocuk:</label>
                                                 <select class="form-control" id="cocukmus" ng-model="ucusgirdi.cocukmus">
-                                                    <option value="" disabled selected>1</option>
-                                                    <option value="1">1</option>
+                                                    <option value="1" selected>1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>

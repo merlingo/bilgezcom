@@ -3,23 +3,21 @@
 /* Controllers */
 var bilgezControllers = angular.module('bilgezControllers', []);
 //bilgezControllers.constant("Modernizr", Modernizr);
-
-bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
-    function ucusCtrl($scope, $window, $http, ucus) {
+//            ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+//$window.alert(ucuslist[0])
+//router ile ucuslar.html e yonlendir ve listeyi orada bir template ile listele
+//$window.location.href = "/#!/ucuslar";
+//            });
+bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http",'ucus',
+    function ucusCtrl($scope, $window, $location, $http, ucus) {
 
         //ucusGirdi View Model yaratilir
         //$scope.ucusgirdi.nereden = "İstanbul";
         $scope.ucusgirdi = {};
 
         $scope.ucusara = function (ucusgirdi) {
-            // $scope.ucusgirdi = { nereden: $scope.nereden };
-            //$window.alert(ucusgirdi);
-            //http ile sunucuya gönder
-            ucus.ara(ucusgirdi);
-            ucus.$promise.then(function (ucuslist) {
-                $window.alert(ucuslist[0])
-
-            });
+           // $window.alert(JSON.stringify(ucusgirdi.nereden))
+            $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
         }
         $scope.popup = {};
         $scope.popup = {
@@ -44,9 +42,37 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window',"$http",'ucus',
             });
         };
     }]);
+bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams','ucus',
+    function ($scope, $window, $routeParams, ucus) {
+        var ucusgirdi = {
+            nereden: $routeParams.nereden,
+            nereye: $routeParams.nereye,
+            checkin: $routeParams.checkin,
+            checkout: $routeParams.checkout,
+            yetiskin: $routeParams.yet,
+            cocuk: $routeParams.cocuk
+        };
+        $scope.ucuslist = {};
+            ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+                $scope.ucuslist = ucuslist;
+        });
+            $scope.sec = function (ucusid) {
+                $window.alert(ucusid);
 
-bilgezControllers.controller('havalimaniCtrl', ['$scope', 'havalimaniKayit', 'FileUploader',
-    function ucusCtrl($scope, havalimaniKayit, FileUploader) {
+                $window.location.href = "/#!/ucuslar/" + ucusid;
+
+            }
+    }
+    ]);
+bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParams',
+    function ($scope, $window, $routeParams) {
+        var ucusid = $routeParams.ucusid;
+        $window.alert(ucusid);
+
+    }
+]);
+bilgezControllers.controller('havalimaniCtrl', ['$scope', 'FileUploader',
+        function havalimaniCtrl($scope, FileUploader) {
 
         //json dosyasını parse etmeli ve teker teker eklemeli - hepsini gönderince problem oluyor
 

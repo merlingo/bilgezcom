@@ -3,7 +3,7 @@
 //ilk ekranda uçuşları aramak için servis
 serviceModule.factory('ucus', ['$resource', function ($resource) {
     return $resource('/API/ucus', {}, {
-        ara:{method:'POST'}
+        ara:{method:'POST',isArray:true}
     });
 }]);
 

@@ -11,8 +11,15 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
             }).when('/havalimani', {
                 templateUrl: '/partials/havalimani.html',
                 controller: 'havalimaniCtrl'
+            }).when('/ucuslar/:nereden/:nereye/:checkin/:checkout/:yet/:cocuk', {
+                title: 'ucuslar',
+                templateUrl: 'partials/ucuslar.html',
+                controller: 'ucuslarCtrl'
+            }).when('/ucuslar/:ucusid', {
+                title: 'ucuslar',
+                templateUrl: 'partials/ucusbilgileri.html',
+                controller: 'ucusbilgiCtrl'
             })
-       
             .when('/login', {
               title: 'Login',
               templateUrl: 'partials/login.html',
