@@ -19,32 +19,9 @@ serviceModule.factory('havalimaniKayit', ['$resource', function ($resource) {
         kaydet: { method: 'POST' }
     });
 }]);
-//login icin gerekli fonksiyon icin servis
-serviceModule.factory('login', function ($http, $q, token) {
 
-    var authFactory = {};
-    authFactory.login = function (mail, password) {
-
-        return $http.post('/membership/login', {
-            username: username,
-            password: password
-        })
-            .success(function (data) {
-                token.setToken(data.token)
-                return data
-            })
-    }
-});
-
-//login and sign up servisi
-//{
-//    method: 'POST',
-//        url: url,
-//            data: data,
-//                timeout: 4000
-//}
-serviceModule.factory("RestApiClientService", ['$http', 'toaster',
-    function ($http, toaster) { // This service connects to our REST API
+serviceModule.factory("RestApiClientService", ['$http', 'toaster',"token",
+    function ($http, toaster, token) { // This service connects to our REST API
 
         var serviceBase = '/membership/';
 
@@ -70,10 +47,11 @@ serviceModule.factory("RestApiClientService", ['$http', 'toaster',
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(function (results) {
-                    if (q == "login")
-                        token.setToken(results.data.token)
-                    console.log("kayit edildi!");
+             }).then(function (results) {
+                 if (results.data.token) { 
+                         token.setToken(results.data.token);
+                         console.log("kayit edildi!");
+                    }
                     console.log(results.data);
                     return results.data;
                 },function(e){
@@ -87,7 +65,22 @@ serviceModule.factory("RestApiClientService", ['$http', 'toaster',
             return $http.put(serviceBase + q, object).then(function (results) {
                 return results.data;
             });
+       };
+        obj.logout = function () {
+            token.setToken();
         };
+        obj.isloggedIn = function () {
+            if (token.getToken())
+                return true;
+            else
+                return false;
+        };
+        obj.getUser = function () {
+            if (token.getToken()) 
+                return $http.get("/membership/me");
+            else
+                return { message: "user has no token" };            
+        }
         obj.delete = function (q) {
             return $http.delete(serviceBase + q).then(function (results) {
                 return results.data;
@@ -96,4 +89,52 @@ serviceModule.factory("RestApiClientService", ['$http', 'toaster',
 
         return obj;
 }]);
-    
+serviceModule.factory('UserService', ['$http', 'token', function ($http, token) {
+    return {
+        getUser: function () {
+            if (token.getToken())
+                return $http.get("/membership/me").then(function (results) {
+                    console.log("me geldi: " + JSON.stringify(results.data));
+                    return results.data;
+                });
+            else
+                return false;
+        }
+    }
+
+}]);
+serviceModule.factory("token", ["$window", function ($window) {
+
+    var authTokenFactory = {};
+    authTokenFactory.getToken = function () {
+        return $window.localStorage.getItem("token");
+
+    }
+    authTokenFactory.setToken = function (token) {
+        if (token)
+            $window.localStorage.setItem('token', token);
+        else
+            $window.localStorage.removeItem('token');
+
+    }
+    return authTokenFactory;
+}]);
+
+serviceModule.factory("AuthInterceptor", function ($q, $location, token) {
+    var interceptor = {};
+    interceptor.request = function (config) {
+        var token = token.getToken();
+        if (token) {
+            config.headers['x-access-token'] = token;
+
+        }
+        return config;
+    };
+    interceptor.response = function(response) {
+        if (response.headers('New-Jwt-Token')) {
+            console.log(response.headers('New-Jwt-Token'));
+        }
+        return response;
+    }
+    return interceptor;
+});

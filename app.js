@@ -7,11 +7,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var jsonwebtoken = require('jsonwebtoken');
 var config = require("./config")
 const fileUpload = require('express-fileupload');
 var membership = require('./routes/membership_procedures')
 var API = require('./routes/APIs')
-
+var superSecret = config.secretKey;
 var pages = require("./routes/pages")
 var app = express();
 app.use(fileUpload());
@@ -31,7 +32,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(function (req, res, next) {
+    console.log("birileri girmeye çalişiyor");
+    var token = req.body.token || req.param("token") || req.headers["x-access-token"];
+    console.log("token: " + token);
+    if (token) {
+        jsonwebtoken.verify(token, superSecret, function (err, decoded) {
+            if (err) { 
+            res.status(403).send({ success: false, message: "failed to authentication" });
+        }
+            else {
+                console.log("decoded:" + JSON.stringify(decoded));
+                req.decoded = decoded;
 
+            }
+        });
+
+    }
+    next();
+});
 app.use('/', pages);
 app.use('/membership', membership);
 app.use('/API', API);

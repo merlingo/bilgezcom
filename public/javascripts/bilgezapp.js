@@ -71,3 +71,7 @@ bilgezApp.directive('passwordMatch', [function () {
         }
     };
 }]);
+
+//bilgezApp.config(["$httpProvider",function ($httpProvider) {
+//    $httpProvider.interceptors.push('AuthInterceptor');
+//}]);

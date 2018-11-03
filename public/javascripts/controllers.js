@@ -8,6 +8,19 @@ var bilgezControllers = angular.module('bilgezControllers', []);
 //router ile ucuslar.html e yonlendir ve listeyi orada bir template ile listele
 //$window.location.href = "/#!/ucuslar";
 //            });
+
+bilgezControllers.controller('headerCtrl', ['$scope', '$window','UserService',
+    function ($scope, $window, UserService) {
+        var user = UserService.getUser();
+        $scope.uyemi = false;
+
+        if (user) {
+            $scope.uyemi = true;
+            $scope.uyeadi =user.name;
+        }
+
+    }
+]);
 bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http",'ucus',
     function ucusCtrl($scope, $window, $location, $http, ucus) {
 
@@ -152,11 +165,9 @@ bilgezControllers.controller('login', ['$scope', '$location','RestApiClientServi
     $scope.login = {};
  
     $scope.doLogin = function (customer) {
-        RestApiClientService.post('login', {
-            customer: customer
-        }).then(function (results) {
-            RestApiClientService.toast(results);
-            if (results.status == "success") {
+        RestApiClientService.post('signin', customer).then(function (results) {
+            RestApiClientService.toast(results.message);
+            if (results.success == true) {
                 $location.path('#!/');
             }
         });

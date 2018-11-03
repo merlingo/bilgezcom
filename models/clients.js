@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 // sistemde kayitli müsteriler icin  model - Mongoose model for clients registered in the system
 var clientSchema = new Schema({
-    mail: {
+    email: {
         type: String,
         required: true
     },
@@ -15,6 +15,12 @@ var clientSchema = new Schema({
         type: String
     },
     surname: {
+        type: String
+    },
+    phone:{
+        type: String
+    },
+    address:{
         type: String
     },
     admin: {

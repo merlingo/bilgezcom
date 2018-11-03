@@ -1,5 +1,5 @@
 ﻿module.exports = {
-    'secretKey': '36987-74123-98741-12369',
+    'secretKey': 'oTDNTj9JTITGJDPWgcbq3ukD76EhgjY1jT6y95n8FB68qVATAie7ekOsIfNcE7wDRj50GYJWRd5teKzNL0eogA==',
     'mongoUrl': 'mongodb://bilgezcom@bilgezcom.documents.azure.com:10255/bilgezcom?ssl=true',
     'connectionOptions': {
         'auth': {

@@ -1,5 +1,5 @@
 <header id="fh5co-header-section" class="sticky-banner">
-			<div class="container">
+			<div class="container" ng-controller="headerCtrl">
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 					<h1 id="fh5co-logo"><a href="/"><img src="images/xsm_logo.png">Bilet Gezegeni</a></h1>
@@ -7,19 +7,16 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-                            
-                            
-
-
-							<li class="active">
-				
-                        
-    <button class="btn btn-primary btn-lg" onclick='location.href="#!/login"'>Oturum aç</button>                       
-                           
+							<li class="active" ng-hide="uyemi">
+                             <button class="btn btn-primary btn-lg" onclick='location.href="#!/login"'>Oturum aç</button>                               
 						<h2></h2>
-  						
+                                </li>
+                            <li class="active" ng-show="uyemi">
+                                <h4>{{uyeadi}}</h4>
+                                <button class="btn btn-danger btn-lg" onclick='location.href="#!/login"'>Oturum Kapat</button>
+                                <h2></h2>
+                            </li>
 						</ul>
-           
 					</nav>
                 
     </div>
