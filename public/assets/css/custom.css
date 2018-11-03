@@ -262,7 +262,7 @@ height:30px;
 .mt10{position:relative; top:10px;}
 .mt15{position:relative; top:15px;}
 .mt20{position:relative; top:20px;}
-.mt25{position:relative; top:25px;}
+.mt25{position:relative; top:5px;}
 .mt30{position:relative; top:30px;}
 .mt-1{position:relative; top:-1px;}
 .mt-2{position:relative; top:-2px;}
@@ -420,7 +420,7 @@ z-index:100;
 	text-shadow: rgba(0,0,0,.4) 0 -1px 0;
 	color:#ffffff;
 	font-size: 13px;
-	font-family: Helvetica, Arial, Sans-Serif;
+	font-family: calibri, Arial, Sans-Serif;
 	text-decoration: none;
 	vertical-align: middle;
 
@@ -1566,7 +1566,7 @@ background:url('../../images1/slider/couple.png') no-repeat;
 
 /*CSS FOR LIST PAGE*/
 .thebg{background:url('../../images1/plane.jpg') #f2f2f2 no-repeat top center;}
-.pagecontainer{ background:#fff; margin-top:32px; border:px solid #cccccc;  box-shadow:  0 px rgba(0, 0, 0, 0.13);}
+.pagecontainer{ background:#fff; margin-top:1px; border:px solid #cccccc;  box-shadow:  0 px rgba(0, 0, 0, 0.13);}
 .offset-0{padding-left:0px; padding-right:0px!important;}
 .offset-1{padding-left:5px; padding-right:5px;}
 .offset-2{padding-left:15px; padding-right:15px;}

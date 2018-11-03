@@ -2036,11 +2036,11 @@ a.s3-btn5 {
 }
 
 .row-bottom-padded-md {
-  padding-bottom: 4em;
+  padding-bottom: 0.8em;
 }
 @media screen and (max-width: 768px) {
   .row-bottom-padded-md {
-    padding-bottom: 2em;
+    padding-bottom: 0em;
   }
 }
 
@@ -2313,7 +2313,7 @@ ul.simple-post-list {
 }
 .breadcrumbs {
 position: relative;
-border-bottom: 1px solid #E5E5E5;
+border-bottom: 0px solid #E5E5E5;
 background-color: #F5F5F5;
 }
 .breadcrumb{
@@ -2347,6 +2347,9 @@ padding-bottom: 10px;*/
 .form-group-addon{
 	padding-left: -2px;
 }
+
+
+
 
 
 

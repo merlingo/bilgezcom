@@ -33,8 +33,21 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
             .when('/signup', {
                 title: 'Signup',
                 templateUrl: 'partials/signup.html',
-                controller: 'signup'
+                controller: 'signup'  
             })
+          .when('/ucuslar', {
+                title: 'ucuslar',
+                templateUrl: '/z-flights-list.html',
+                controller: 'ucuslar'
+            })
+        
+          .when('/ucusbilgileri', {
+                title: 'ucusbilgileri',
+                templateUrl: '/z-flights-payment.html',
+                controller: 'ucusbilgileri'
+            })
+        
+        
             .otherwise({
                 redirectTo: '/'
             });
