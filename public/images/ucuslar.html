@@ -1,0 +1,21 @@
+﻿<div>
+    <table>
+        <tr><th>havayolu</th>
+<th>kalkış</th>
+<th>süre</th>
+<th>varış</th>
+<th>fiyat (tek kişi)</th>
+<th>aksiyon</th>
+</tr>
+        <tr ng-repeat="ucus in ucuslist">
+            <td>{{ucus.nereden}}</td>
+            <td>{{ucus.tarih}}</td>
+            <td>{{ucus.sure}}</td>
+            <td>{{ucus.nereye}}</td>
+            <td>{{ucus.fiyat[0]}}</td>
+            <td><button ng-click="sec(ucus._id)">SEC</button></td>
+
+        </tr>
+
+    </table>
+</div>
