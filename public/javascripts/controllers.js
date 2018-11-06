@@ -65,8 +65,33 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
             yetiskin: $routeParams.yet,
             cocuk: $routeParams.cocuk
         };
-        $scope.ucuslist = {};
-            ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+        $scope.ucuslist = [];
+        ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+            //console.log(JSON.stringify(ucuslist));
+            var u = {};
+            for (var ucusno in ucuslist) {
+                var ucus = ucuslist[ucusno];
+                u = {
+                    "_id": ucus._id,
+                    nereden: {
+                        state: ucus.nereden.state,
+                        city: ucus.nereden.city
+                    },
+                    nereye: {
+                        state: ucus.nereye.state,
+                        city: ucus.nereye.city
+                    },
+                    departure: {
+                        tarih: "tarih",
+                        saat:"saat"
+                    },
+                    arrival: {
+                        tarih: "tarih",
+                        saat: "saat"
+                    },
+                };
+                $scope.ucuslist.push(u);
+            }
                 $scope.ucuslist = ucuslist;
         });
             $scope.sec = function (ucusid) {
