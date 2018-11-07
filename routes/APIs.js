@@ -98,8 +98,18 @@ router.get('/havalimani/:sehir', function (req, res) {
 
 router.get('/ucus/:ucusid', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
-    ucusid = req.params.ucusid;
+    var ucusid = req.params.ucusid;
+    ucusModel.findOne({ "_id": ucusid }).populate({ path: 'nereden', model: Havaliman }).populate({ path: 'nereye', model: Havaliman }).exec( function (err, u) {
+        if (err) {
+            console.log("err" + err);
+            res.send(err);
+            return
+        }
+        console.log("ucus: " + JSON.stringify(u));
 
+        res.send(u);
+
+    });
 })
 router.post('/ucus', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali

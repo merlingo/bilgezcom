@@ -32,29 +32,29 @@
 
                     <div class="col-md-4">
                         <span class="size13 dark">Surname*</span>
-                        <input type="text" class="form-control " placeholder="">
+                        <input type="text" class="form-control " placeholder="" ng-model="user.surname">
                     </div>
                     <div class="col-md-4">
                         <span class="size13 dark">Name*</span>
-                        <input type="text" class="form-control " placeholder="">
+                        <input type="text" class="form-control " placeholder="" ng-model="user.name">
                     </div>
                     <div class="col-md-4">
                         <div class="w50percent">
                             <span class="size13 dark">Date of birth*</span>
-                            <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy" />
+                            <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy" ng-model="user.birthday"/>
                         </div>
                         <div class="w50percentlast">
                             <div class="w90percentlast right">
                                 &nbsp;<br />
                                 <div class="radio radiomargin0">
                                     <label>
-                                        <input type="radio" checked="" name="optionsRadios2" id="optionsRadios2" value="option2">
+                                        <input type="radio" checked="" name="optionsRadios2" id="optionsRadios2" value="male" ng-model="user.sex">
                                         Male
                                     </label>
                                 </div>
                                 <div class="radio radiomargin0">
                                     <label>
-                                        <input type="radio" name="optionsRadios2" id="optionsRadios2" value="option2">
+                                        <input type="radio" name="optionsRadios2" id="optionsRadios2" value="female" ng-model="user.sex">
                                         Female
                                     </label>
                                 </div>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <fieldset disabled="">
+                        <fieldset>
                             <select class="form-control mySelectBoxClass">
                                 <option selected>Air Berlin</option>
                                 <option>Air Berlin</option>
@@ -98,7 +98,7 @@
                         </fieldset>
                     </div>
                     <div class="col-md-4">
-                        <fieldset disabled="">
+                        <fieldset >
                             <select class="form-control mySelectBoxClass" id="disabledSelect">
                                 <option selected>Card number</option>
                                 <option>xxx-xxx-xxx-732</option>
@@ -116,7 +116,7 @@
                 <br />
 
 
-                <!-- ROW -->
+                <!-- ROW 
                 <div class="row">
 
                     <div class="col-md-4">
@@ -294,10 +294,10 @@
 
 
                 <br />
-                <!-- Nav tabs -->
+                <!-- Nav tabs  !!! MODAL ANGULAR BOOTSTRAP İLE GUNCELLENMELİ EKSİK-->
                 <ul class="nav navigation-tabs">
-                    <li class="active"><a href="#card" data-toggle="tab">Credit/Debit card</a></li>
-                    <li><a href="#paypal" data-toggle="tab">Paypal</a></li>
+                    <li class="active"><a href="" data-toggle="tab">Credit/Debit card</a></li>
+                    <li><a href="" data-toggle="tab">Paypal</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -470,7 +470,7 @@
                     restrictions
                 </a> <a href="#" class="clblue">terms & conditions</a> , and <a href="#" class="clblue">privacy policy</a>.	<br />
 
-                <button type="submit" class="bluebtn margtop20">Complete booking</button>
+                <button type="submit" class="bluebtn margtop20" ng-click="complete(user)">Complete booking</button>
 
 
             </div>
@@ -492,13 +492,13 @@
                     <!-- GOING TO -->
                     <div>
                         <div class="wh33percent left size12 bold dark">
-                            BUC
+                            {{ubilgi.nereden.code}}
                         </div>
                         <div class="wh33percent left center size12 bold dark">
-                            FRA
+                            {{ubilgi.aktarma}}
                         </div>
                         <div class="wh33percent right textright size12 bold dark">
-                            DUB
+                            {{ubilgi.nereye.code}}
                         </div>
                         <div class="clearfix"></div>
 
@@ -521,13 +521,13 @@
                         <div class="fline2px"></div>
 
                         <div class="wh33percent left size12">
-                            04:05 PM
+                            {{ubilgi.departure}}
                         </div>
                         <div class="wh33percent left center size12">
-                            1 h 20 m
+                            {{ubilgi.sure}}
                         </div>
                         <div class="wh33percent right textright size12">
-                            07:35 PM
+                            {{ubilgi.arrival}}
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -538,13 +538,13 @@
                     <!-- RETURNING -->
                     <div>
                         <div class="wh33percent left size12 bold dark">
-                            DUB
+                            {{ubilgi.nereye.code}}
                         </div>
                         <div class="wh33percent left center size12 bold dark">
-                            FRA
+                            {{ubilgi.actarma}}
                         </div>
                         <div class="wh33percent right textright size12 bold dark">
-                            BUC
+                            {{ubilgi.nereden.code}}
                         </div>
                         <div class="clearfix"></div>
 
@@ -662,7 +662,7 @@
                             <a href="#" class="greylink">Lost password?</a><br />
                         </div>
                         <div class="right">
-                            <button class="btn-search5" type="submit" onclick="errorMessage()">Login</button>
+                            <button class="btn-search5" type="submit" onclick="">Login</button>
                         </div>
                     </div>
                     <div class="clearfix"></div><br />
