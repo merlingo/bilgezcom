@@ -91,7 +91,7 @@
 				
 				
 				
-				<div class="padding20title"><h3 class="opensans dark">Filter by</h3></div>
+				<div class="padding20title"><h3 class="opensans dark">Filtre</h3></div>
 				<div class="line2"></div>
 				
 
@@ -104,12 +104,12 @@
 					<div class="hpadding20">
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox">Offers without connection (13)
+							  <input type="checkbox">Aktarmasız Uçuşlar (13)
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox">Offers with connection (88)
+							  <input type="checkbox">Aktarmalı uçuşlar (88)
 							</label>
 						</div>
 					</div>
@@ -124,20 +124,7 @@
 				<div class="line2"></div>
 				
 				<!-- Price range -->					
-				<button type="button" class="collapsebtn" data-toggle="collapse" data-target="#collapse2">
-				  Price range <span class="collapsearrow"></span>
-				</button>
-					
-				<div id="collapse2" class="collapse in">
-					<div class="padding20">
-						<div class="layout-slider wh100percent">
-						<span class="cstyle09"><input id="Slider1" type="slider" name="price" value="770;2500" /></span>
-						</div>
-						<script type="text/javascript" >
-						  jQuery("#Slider1").slider({ from: 100, to: 5000, step: 5, smooth: true, round: 0, dimension: "&nbsp;$", skin: "round" });
-						</script>
-					</div>
-				</div>
+			
 				<!-- End of Price range -->	
 				
 				<div class="line2"></div>
@@ -188,19 +175,25 @@
 					<div class="hpadding20">
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox">Morning (5:00a - 11:59a)
+							  <input type="checkbox">Sabah (5:00am - 11:59am)
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox">Afternoon (12:00p - 5:59p)
+							  <input type="checkbox">Öğlen (12:00pm - 5:59pm)
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox">Evening (6:00p - 11:59p)
+							  <input type="checkbox">Akşam (6:00pm - 11:59pm)
 							</label>
 						</div>
+                        <div class="checkbox">
+							<label>
+							  <input type="checkbox">Gece (12:00am - 04:59am)
+							</label>
+						</div>
+                        
 					</div>
 					<div class="clearfix"></div>						
 				</div>	
@@ -224,14 +217,15 @@
 					<div class="topsortby">
 						<div class="col-md-4 offset-0">
 								
-								<div class="left mt7"><b>Sort by:</b></div>
+								<div class="left mt7"><b>Sırala:</b></div>
 								
 								<div class="right wh70percent">
 									<select class="form-control mySelectBoxClass ">
-									  <option selected>Departure</option>
-									  <option>Morning (5:00a - 11:59a)</option>
-									  <option>Afternoon (12:00p - 5:59p)</option>
-									  <option>Evening (6:00p - 11:59p)</option>
+									  <option selected>Kalkış</option>
+									  <option>Sabah (5:00am - 11:59am)</option>
+									  <option>Öğlen (12:00pm - 5:59pm)</option>
+									  <option>Akşam (6:00pm - 11:59pm)</option>
+                                      <option>Gece  (12:00am - 04:59pm)</option>
 									</select>
 								</div>
 
@@ -242,31 +236,25 @@
 							<div class="w50percent">
 								<div class="wh90percent">
 									<select class="form-control mySelectBoxClass ">
-									  <option selected>Arrival</option>
-									  <option>Morning (5:00a - 11:59a)</option>
-									  <option>Afternoon (12:00p - 5:59p)</option>
-									  <option>Evening (6:00p - 11:59p)</option>
+									  <option selected>Varış</option>
+									  <option>Sabah (5:00am - 11:59am)</option>
+									  <option>Öğlen (12:00pm - 5:59pm)</option>
+									  <option>Akşam (6:00pm - 11:59pm)</option>
+                                        <option>Gece  (12:00am - 04:59pm)</option>
 									</select>
 								</div>
 							</div>
 							<div class="w50percentlast">
 								<div class="wh90percent">
 									<select class="form-control mySelectBoxClass ">
-									  <option selected>Price</option>
-									  <option>Ascending</option>
-									  <option>Descending</option>
+									  <option selected>Fiyat</option>
+									  <option>Yükselen</option>
+									  <option>Azalan</option>
 									</select>
 								</div>
 							</div>					
 						</div>
-						<div class="col-md-4 offset-0">
-							<button class="popularbtn left">Duration</button>
-							<div class="right">
-								<button class="gridbtn active">&nbsp;</button>
-								<button class="listbtn active">&nbsp;</button>
-								<button class="grid2btn active">&nbsp;</button>
-							</div>
-						</div>
+						
 					</div>
 					<!-- End of topfilters-->
 				</div>
@@ -294,24 +282,24 @@
 									<div class="radio radiomargin0">
 									  <label>
 										<input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsFradios">
-										Departure
+										Kalkış
 									  </label>
 									</div>
 									<span class="grey">3 February, Mon</span><br/>
 									<span class="size16 dark bold">14:00</span><br/>
 								</li>
 								<li class="ft3">
-									Arrival<br/>
+									Varış<br/>
 									<span class="grey">3 February, Mon</span><br/>
 									<span class="size16 dark bold">17:45</span><br/>
 								</li>
 								<li class="ft4">
-									Flight<br/>
+									Uçuş<br/>
 									<span class="grey">LH-1419</span><br/>
 									Embraer ERJ-190<br/>
 								</li>
 								<li class="ft5">
-									<button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse10">More</button>
+									<button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse10">Daha Fazla</button>
 								</li>
 							</ul>
 							<div class="clearfix"></div><br/><br/>
@@ -324,21 +312,21 @@
 									
 								</li>
 								<li class="ft2">
-									Duration<br/>
+									Kalkış<br/>
 									<span class="grey">Economy</span><br/>
 									<b>5 h 45 min</b><br/>
 								</li>
 								<li class="ft3">
-									Connections<br/>
+									Aktarma<br/>
 									<span class="grey">Frankfurt, Germany</span><br/>
 									<b>1 h 25 min</b><br/>
 								</li>
 								<li class="ft4">
-									Seats left<br/><br/>
+									Kalan Koltuklar<br/><br/>
 									<b>6</b>
 								</li>
 								<li class="ft5">
-									<button class="hidebtn mt1" type="button" data-toggle="collapse" data-target="#collapse10">Hide</button>
+									<button class="hidebtn mt1" type="button" data-toggle="collapse" data-target="#collapse10">Gizle</button>
 								</li>
 							</ul>
 							<div class="clearfix"></div><br/><br/>
@@ -356,24 +344,24 @@
 									<div class="radio radiomargin0">
 									  <label>
 										<input type="radio"  value="option1" id="optionsRadios1" name="optionsFradios">
-										Departure
+										Kalkış
 									  </label>
 									</div>
 									<span class="grey">3 February, Mon</span><br/>
 									<span class="size16 dark bold">14:00</span><br/>
 								</li>
 								<li class="ft3">
-									Arrival<br/>
+									Varış<br/>
 									<span class="grey">3 February, Mon</span><br/>
 									<span class="size16 dark bold">17:45</span><br/>
 								</li>
 								<li class="ft4">
-									Flight<br/>
+									Uçuş<br/>
 									<span class="grey">LH-1419</span><br/>
 									Embraer ERJ-190<br/>
 								</li>
 								<li class="ft5">
-									<button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse11">More</button>
+									<button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse11">Daha Fazla</button>
 								</li>
 							</ul>
 							<div class="clearfix"></div><br/><br/>
@@ -387,7 +375,7 @@
 									
 								</li>
 								<li class="ft2">
-									Duration<br/>
+									Kalkış<br/>
 									<span class="grey">Economy</span><br/>
 									<b>5 h 45 min</b><br/>
 								</li>

@@ -208,7 +208,7 @@ figure {
 .fh5co-cover .desc {
   top: 26%;
   position: absolute;
-  width: 67%;
+  width: 100%;
   margin-top: -50px;
   z-index: 2;
   color: #fff;
@@ -601,7 +601,7 @@ figure {
 }
 @media screen and (max-width: 480px) {
   .tabulation input[type="text"] {
-    width: 55%;
+    width: 104%;
     float: right;
   }
 }
