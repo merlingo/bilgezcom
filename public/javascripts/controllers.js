@@ -39,7 +39,9 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
 
         $scope.ucusara = function (ucusgirdi) {
            // $window.alert(JSON.stringify(ucusgirdi.nereden))
-            $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
+                            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            $window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
         }
         $scope.popup = {};
         $scope.popup = {
@@ -109,8 +111,8 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
         });
             $scope.sec = function (ucusid) {
                 //$window.alert(ucusid);
-
-                $window.location.href = "/#!/ucuslar/" + ucusid;
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                $window.location.href = "/test#!/ucuslar/" + ucusid;
 
             }
     }
@@ -121,14 +123,16 @@ bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParam
         //$window.alert(ucusid);
         $scope.ubilgi = {};
         ucus.getir({ id:ucusid }, function (u, getResponseHeaders) {
-            $window.alert(JSON.stringify(u));
+            //$window.alert(JSON.stringify(u));
             $scope.ubilgi = u;
         });
         $scope.complete = function (bilet) {
             $window.alert("bilet alma işlemi tamamlanmıştır. Aldığınız bilet mail ile gönderilmiştir");
             $window.alert("bilet bilgileri: " + JSON.stringify(bilet));
             //BİLET ALMA REQUEST GONDERILIR DONEN MODEL İLE ALİNANBİLET SAYFASI OLUŞTURULUR VE KULLANICIYA GOSTERİLİR. SUNUCUDA MAIL GONDERILECEKTIR
-            $window.location.href = "/#!/alinanbilet/" + ucusid;
+                            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            $window.location.href = "/test#!/alinanbilet/" + ucusid;
 
         }
     }

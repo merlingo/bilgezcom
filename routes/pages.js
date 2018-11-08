@@ -9,8 +9,5 @@ router.get('/', function (req, res) {
 router.get('/contact', function (req, res) {
     res.sendFile('/views/contact.html', { root: '.' });
 });
-/* GET home page. */
-router.get('/yakinda', function (req, res) {
-    res.sendFile('/views/coming_soon.html', { root: '.' });
-});
+
 module.exports = router;

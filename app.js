@@ -12,6 +12,8 @@ var config = require("./config")
 const fileUpload = require('express-fileupload');
 var membership = require('./routes/membership_procedures')
 var API = require('./routes/APIs')
+var yakinda = require('./routes/yakinda')
+
 var superSecret = config.secretKey;
 var pages = require("./routes/pages")
 var app = express();
@@ -51,9 +53,10 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 //    }
 //    next();
 //});
-app.use('/', pages);
+app.use('/test', pages);
 app.use('/membership', membership);
 app.use('/API', API);
+app.use('/', yakinda);
 
 //app.use(redirectUnmatched);
 
@@ -101,5 +104,8 @@ var server = app.listen(app.get('port'), function () {
 });
 
 //function redirectUnmatched(req, res) {
+//    if (req.method != "GET" || req.url.split('/').length > 2)
+//        res.redirect("/test");
+
 //    res.redirect("/yakinda");
 //}
