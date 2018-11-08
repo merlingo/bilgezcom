@@ -36,9 +36,9 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
                 controller: 'signup'  
             })
           .when('/ucuslar', {
-                title: 'ucuslar',
-                templateUrl: '/z-flights-list.html',
-                controller: 'ucuslar'
+              title: 'ucuslar',
+              templateUrl: 'partials/ucuslar.html',
+              controller: 'ucuslarCtrl'
             })
         
           .when('/ucusbilgileri', {

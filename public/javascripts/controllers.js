@@ -18,7 +18,16 @@ bilgezControllers.controller('headerCtrl', ['$scope', '$window','UserService',
             $scope.uyemi = true;
             $scope.uyeadi =user.name;
         }
-
+        $scope.cikis = function () {
+            UserService.outUser();
+            $scope.uyemi = false;
+        }
+        $scope.giris = function () {
+            UserService.outUser();
+            $scope.uyemi = true;
+            $window.location.href = "/#!/";
+        }
+        
     }
 ]);
 bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http",'ucus',
@@ -30,7 +39,9 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
 
         $scope.ucusara = function (ucusgirdi) {
            // $window.alert(JSON.stringify(ucusgirdi.nereden))
-            $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
+                            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            $window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
         }
         $scope.popup = {};
         $scope.popup = {
@@ -65,23 +76,65 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
             yetiskin: $routeParams.yet,
             cocuk: $routeParams.cocuk
         };
-        $scope.ucuslist = {};
-            ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+        $scope.ucusgirdi = ucusgirdi;
+        $scope.aynilink = function () {
+            return ucusgirdi.nereden + "/" + ucusgirdi.nereye + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetiskin + "/" + ucusgirdi.cocuk ;
+        }
+        $scope.ucuslist = [];
+        ucus.ara(ucusgirdi, function (ucuslist, getResponseHeaders) {
+            //console.log(JSON.stringify(ucuslist));
+            var u = {};
+            for (var ucusno in ucuslist) {
+                var ucus = ucuslist[ucusno];
+                u = {
+                    "_id": ucus._id,
+                    nereden: {
+                        state: ucus.nereden.state,
+                        city: ucus.nereden.city
+                    },
+                    nereye: {
+                        state: ucus.nereye.state,
+                        city: ucus.nereye.city
+                    },
+                    departure: {
+                        tarih: "tarih",
+                        saat:"saat"
+                    },
+                    arrival: {
+                        tarih: "tarih",
+                        saat: "saat"
+                    },
+                };
+                $scope.ucuslist.push(u);
+            }
                 $scope.ucuslist = ucuslist;
         });
             $scope.sec = function (ucusid) {
-                $window.alert(ucusid);
-
-                $window.location.href = "/#!/ucuslar/" + ucusid;
+                //$window.alert(ucusid);
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                $window.location.href = "/test#!/ucuslar/" + ucusid;
 
             }
     }
     ]);
-bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParams',
-    function ($scope, $window, $routeParams) {
+bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParams', 'ucus',
+    function ($scope, $window, $routeParams,ucus) {
         var ucusid = $routeParams.ucusid;
-        $window.alert(ucusid);
+        //$window.alert(ucusid);
+        $scope.ubilgi = {};
+        ucus.getir({ id:ucusid }, function (u, getResponseHeaders) {
+            //$window.alert(JSON.stringify(u));
+            $scope.ubilgi = u;
+        });
+        $scope.complete = function (bilet) {
+            $window.alert("bilet alma işlemi tamamlanmıştır. Aldığınız bilet mail ile gönderilmiştir");
+            $window.alert("bilet bilgileri: " + JSON.stringify(bilet));
+            //BİLET ALMA REQUEST GONDERILIR DONEN MODEL İLE ALİNANBİLET SAYFASI OLUŞTURULUR VE KULLANICIYA GOSTERİLİR. SUNUCUDA MAIL GONDERILECEKTIR
+                            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+            $window.location.href = "/test#!/alinanbilet/" + ucusid;
+
+        }
     }
 ]);
 bilgezControllers.controller('havalimaniCtrl', ['$scope', 'FileUploader',
@@ -159,16 +212,17 @@ bilgezControllers.controller('havalimaniCtrl', ['$scope', 'FileUploader',
 /*
  * Login Controller
  */
-bilgezControllers.controller('login', ['$scope', '$location','RestApiClientService', function ($scope, $location, RestApiClientService) {
+bilgezControllers.controller('login', ['$scope', '$location', '$window', 'RestApiClientService', function ($scope, $location, $window, RestApiClientService) {
  
     //initially set those objects to null to avoid undefined error
     $scope.login = {};
  
     $scope.doLogin = function (customer) {
         RestApiClientService.post('signin', customer).then(function (results) {
-            RestApiClientService.toast(results.message);
+           // RestApiClientService.toast(results.message);
             if (results.success == true) {
-                $location.path('#!/');
+                $location.path('/');
+                $window.location.reload();
             }
         });
     };

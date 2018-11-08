@@ -12,6 +12,8 @@ var config = require("./config")
 const fileUpload = require('express-fileupload');
 var membership = require('./routes/membership_procedures')
 var API = require('./routes/APIs')
+var yakinda = require('./routes/yakinda')
+
 var superSecret = config.secretKey;
 var pages = require("./routes/pages")
 var app = express();
@@ -32,28 +34,29 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
-app.use(function (req, res, next) {
-    console.log("birileri girmeye çalişiyor");
-    var token = req.body.token || req.param("token") || req.headers["x-access-token"];
-    console.log("token: " + token);
-    if (token) {
-        jsonwebtoken.verify(token, superSecret, function (err, decoded) {
-            if (err) { 
-            res.status(403).send({ success: false, message: "failed to authentication" });
-        }
-            else {
-                console.log("decoded:" + JSON.stringify(decoded));
-                req.decoded = decoded;
+//app.use(function (req, res, next) {
+//    console.log("birileri girmeye çalişiyor");
+//    var token = req.body.token || req.param("token") || req.headers["x-access-token"];
+//    console.log("token: " + token);
+//    if (token) {
+//        jsonwebtoken.verify(token, superSecret, function (err, decoded) {
+//            if (err) { 
+//            res.status(403).send({ success: false, message: "failed to authentication" });
+//        }
+//            else {
+//                console.log("decoded:" + JSON.stringify(decoded));
+//                req.decoded = decoded;
 
-            }
-        });
+//            }
+//        });
 
-    }
-    next();
-});
-app.use('/', pages);
+//    }
+//    next();
+//});
+app.use('/test', pages);
 app.use('/membership', membership);
 app.use('/API', API);
+app.use('/', yakinda);
 
 //app.use(redirectUnmatched);
 
@@ -101,5 +104,8 @@ var server = app.listen(app.get('port'), function () {
 });
 
 //function redirectUnmatched(req, res) {
+//    if (req.method != "GET" || req.url.split('/').length > 2)
+//        res.redirect("/test");
+
 //    res.redirect("/yakinda");
 //}

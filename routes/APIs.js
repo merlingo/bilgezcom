@@ -1,8 +1,9 @@
 'use strict';
-var express = require('express');
+var mongoose = require('mongoose');
 var Havaliman = require('../models/Havalimani')
 var ucusModel = require('../models/ucusBilgileri')
 var alinBilet = require('../models/alinanBiletler')
+var express = require('express');
 const fs = require('fs');
 
 
@@ -71,21 +72,6 @@ router.post('/havalimani', function (req, res) {
         {
             console.log(e);
         }
-   // }
-    //multiplesave(hvs);
-    //if (data) {
-    //    console.log("json dosyasi:" + data[0]);
-    //    Havaliman.insertMany(data, function (err, kvs) {
-    //        if (err) {
-    //            console.log(err);
-    //            res.send(err);
-    //            return
-    //        }
-    //         //saved!
-    //        res.json({ msg: kvs.length + " havalimani kayit edildi" });
-    //    });
-    //}
-
 });
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -112,20 +98,31 @@ router.get('/havalimani/:sehir', function (req, res) {
 
 router.get('/ucus/:ucusid', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
-    ucusid = req.params.ucusid;
+    var ucusid = req.params.ucusid;
+    ucusModel.findOne({ "_id": ucusid }).populate({ path: 'nereden', model: Havaliman }).populate({ path: 'nereye', model: Havaliman }).exec( function (err, u) {
+        if (err) {
+            console.log("err" + err);
+            res.send(err);
+            return
+        }
+        console.log("ucus: " + JSON.stringify(u));
 
+        res.send(u);
+
+    });
 })
 router.post('/ucus', function (req, res) {
     //bir ucus secildi, yeni alinanBiletler objesi yaratilmali
     var ucusgirdi = req.body;
     console.log(ucusgirdi);
     var filter = { "nereden": ucusgirdi.nereden, "nereye": ucusgirdi.nereye, "zaman": ucusgirdi.checkin };
-    ucusModel.find({}, function (err, ucuslar) {
+    ucusModel.find({}).populate({ path: 'nereden', model: Havaliman }).populate({ path: 'nereye', model: Havaliman }).exec(function (err, ucuslar) {
         if (err) {
+            console.log("err" + err);
             res.send(err);
             return
         }
-        console.log(ucuslar);
+        console.log("ucuslar: " + JSON.stringify(ucuslar));
 
         res.send(ucuslar);
     });

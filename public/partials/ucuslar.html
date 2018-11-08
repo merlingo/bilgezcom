@@ -1,14 +1,170 @@
-﻿<div class="btn-group btn-breadcrumb">
+﻿    <!-- Bootstrap -->
+<link href="css/custom.css" rel="stylesheet" media="screen">
+<!-- Updates -->
+<link href="css/style01.css" rel="stylesheet" media="screen">
+<!-- Carousel -->
+<link href="examples/carousel/carousel.css" rel="stylesheet">
+
+<div class="btn-group btn-breadcrumb">
             <a href="#!" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#!/ucuslar" class="btn btn-primary">Uçuşlar</a>
+            <a href="#!/ucuslar/{{aynilink()}}" class="btn btn-primary">Uçuşlar</a>
             
             
         </div>
 <div class="container">
 <div id="fh5co-page">
     <!-- end:header-top -->
-    <div class="container pagecontainer offset-0" ng-include src="'/z-flights-list.html'">
-        
+    <br /><br />
+    <div class="clearfix"></div>
+
+
+    <div class="itemscontainer offset-1">
+
+
+        <div id="{{ucus._id}}" class="offset-2" ng-repeat="ucus in ucuslist">
+            <div class="fblueline"><b>{{ucus.nereden.state}}</b>{{ucus.nereden.city}}  <span class="farrow"></span> <b>{{ucus.nereye.state}}</b> {{ucus.nereye.city}}</div>
+
+
+            <!-- GOING TICKET-->
+            <div class="frow1">
+                <ul class="flightstable mt20">
+                    <li class="ft1">
+                        <img src="updates/update1/img/tarom.png" alt="">
+                    </li>
+                    <li class="ft2">
+                        Departure<br />
+                        <span class="grey">{{ucus.departure.tarih}}</span><br />
+                        <span class="size16 dark bold">{{ucus.departure.saat}}</span><br />
+                    </li>
+                    <li class="ft3">
+                        Arrival<br />
+                        <span class="grey">{{ucus.arrival.tarih}}</span><br />
+                        <span class="size16 dark bold">{{ucus.arrival.saat}}</span><br />
+                    </li>
+                    <li class="ft4">
+                        Flight<br />
+                        <span class="grey">LH-1419</span><br />
+                        Embraer ERJ-190<br />
+                    </li>
+                    <li class="ft5">
+                        <button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse{{ucus._id}}">More</button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div><br /><br />
+            </div>
+
+            <div class="collapse frowexpand" id="collapse{{ucus._id}}">
+
+                <ul class="flightstable mt20">
+                    <li class="ft1">
+
+                    </li>
+                    <li class="ft2">
+                        Duration<br />
+                        <span class="grey">Economy</span><br />
+                        <b>5 h 45 min</b><br />
+                    </li>
+                    <li class="ft3">
+                        Connections<br />
+                        <span class="grey">Frankfurt, Germany</span><br />
+                        <b>1 h 25 min</b><br />
+                    </li>
+                    <li class="ft4">
+                        Seats left<br /><br />
+                        <b>6</b>
+                    </li>
+                    <li class="ft5">
+                        <button class="hidebtn mt1" type="button" data-toggle="collapse" data-target="#collapse{{ucus._id}}">Hide</button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div><br /><br />
+
+            </div>
+
+
+            <div class="fgreenline"><b>{{ucus.nereye.state}}</b> {{ucus.nereye.city}} <span class="farrow"></span><b>{{ucus.nereden.state}}</b>{{ucus.nereden.city}}</div>
+
+            <!-- RETURNING TICKET-->
+            <div class="frow2">
+
+                <ul class="flightstable mt20">
+                    <li class="ft1">
+                        <img src="updates/update1/img/tarom.png" alt="">
+                    </li>
+                    <li class="ft2">
+                        Departure<br />
+                        <span class="grey">{{ucus.departure.tarih}}</span><br />
+                        <span class="size16 dark bold">{{ucus.departure.saat}}</span><br />
+                    </li>
+                    <li class="ft3">
+                        Arrival<br />
+                        <span class="grey">3 February, Mon</span><br />
+                        <span class="size16 dark bold">17:45</span><br />
+                    </li>
+                    <li class="ft4">
+                        Flight<br />
+                        <span class="grey">LH-1419</span><br />
+                        Embraer ERJ-190<br />
+                    </li>
+                    <li class="ft5">
+                        <button class="lightbtn mt1" type="button" data-toggle="collapse" data-target="#collapse12">More</button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div><br /><br />
+
+            </div>
+            <div class="collapse frowexpand" id="collapse12">
+
+                <ul class="flightstable mt20">
+                    <li class="ft1">
+
+                    </li>
+                    <li class="ft2">
+                        Duration<br />
+                        <span class="grey">Economy</span><br />
+                        <b>5 h 45 min</b><br />
+                    </li>
+                    <li class="ft3">
+                        Connections<br />
+                        <span class="grey">Frankfurt, Germany</span><br />
+                        <b>1 h 25 min</b><br />
+                    </li>
+                    <li class="ft4">
+                        Seats left<br /><br />
+                        <b>6</b>
+                    </li>
+                    <li class="ft5">
+                        <button class="hidebtn mt1" type="button" data-toggle="collapse" data-target="#collapse12">Hide</button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div><br /><br />
+
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- END OF RETURNING TICKET -->
+
+
+            <div class="fselect">
+                <span class="size12 lightgrey">Roundtrip / per person</span> <span class="size18 green bold">$770</span>&nbsp; <button class="selectbtn mt1" type="button" ng-click="sec(ucus._id)">Seç</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of offset1-->
+
+    <div class="hpadding20">
+
+        <ul class="pagination right paddingbtm20">
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+
     </div>
 </div>
 </div>
@@ -24,7 +180,7 @@
 
 
 
-<div>
+<!--<div>
     <table>
         <tr><th>havayolu</th>
 <th>kalkış</th>
@@ -44,4 +200,5 @@
         </tr>
 
     </table>
-</div>
+</div>-->
+
