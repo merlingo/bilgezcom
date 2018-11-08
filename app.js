@@ -53,10 +53,12 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 //    }
 //    next();
 //});
-app.use('/test', pages);
+//app.use('/test', pages);
+app.use('/', pages);
+
 app.use('/membership', membership);
 app.use('/API', API);
-app.use('/', yakinda);
+//app.use('/', yakinda);
 
 //app.use(redirectUnmatched);
 

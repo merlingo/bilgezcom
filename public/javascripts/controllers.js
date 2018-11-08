@@ -41,7 +41,9 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
            // $window.alert(JSON.stringify(ucusgirdi.nereden))
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            $window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus+"/"+ucusgirdi.cocukmus;
+            //$window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
+            $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
+
         }
         $scope.popup = {};
         $scope.popup = {
@@ -113,6 +115,8 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
                 //$window.alert(ucusid);
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 $window.location.href = "/test#!/ucuslar/" + ucusid;
+                $window.location.href = "/#!/ucuslar/" + ucusid;
+
 
             }
     }
@@ -133,6 +137,8 @@ bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParam
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
             $window.location.href = "/test#!/alinanbilet/" + ucusid;
+            $window.location.href = "/#!/alinanbilet/" + ucusid;
+
 
         }
     }
