@@ -114,7 +114,7 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
             $scope.sec = function (ucusid) {
                 //$window.alert(ucusid);
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                $window.location.href = "/test#!/ucuslar/" + ucusid;
+                //$window.location.href = "/test#!/ucuslar/" + ucusid;
                 $window.location.href = "/#!/ucuslar/" + ucusid;
 
 
