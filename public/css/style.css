@@ -21,7 +21,7 @@ body {
   background: #fff;
   color: #848484;
   font-weight: 300;
-  overflow-x: hidden;
+  overflow-x: initial;
 }
 body.fh5co-offcanvas {
   overflow: hidden;
@@ -206,7 +206,7 @@ figure {
   }
 }
 .fh5co-cover .desc {
-  top: 26%;
+  top: 21%;
   position: absolute;
   width: 100%;
   margin-top: -50px;
@@ -215,8 +215,8 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover .desc {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 .fh5co-cover .desc h2 {
@@ -388,12 +388,12 @@ figure {
 #fh5co-logo {
   position: relative;
   z-index: 2;
-  font-size: 24px;
+  font-size: 22px;
   text-transform: uppercase;
-  margin-top: 8px;
-  font-weight: 700;
+  margin-top: 11px;
+  font-weight: normal;
   float: left;
-  padding-left: 1px;
+  padding-left: 0px;
 }
 #fh5co-logo i {
   position: absolute;
@@ -567,7 +567,7 @@ figure {
 }
 @media screen and (max-width: 480px) {
   .tabulation label {
-    width: 40%;
+    width: 100%;
   }
 }
 .tabulation input[type="text"] {
