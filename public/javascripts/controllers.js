@@ -127,7 +127,7 @@ bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParam
         //$window.alert(ucusid);
         $scope.ubilgi = {};
         ucus.getir({ id:ucusid }, function (u, getResponseHeaders) {
-            //$window.alert(JSON.stringify(u));
+            $window.alert(JSON.stringify(u));
             $scope.ubilgi = u;
         });
         $scope.complete = function (bilet) {
@@ -136,7 +136,7 @@ bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParam
             //BİLET ALMA REQUEST GONDERILIR DONEN MODEL İLE ALİNANBİLET SAYFASI OLUŞTURULUR VE KULLANICIYA GOSTERİLİR. SUNUCUDA MAIL GONDERILECEKTIR
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            $window.location.href = "/test#!/alinanbilet/" + ucusid;
+            //$window.location.href = "/test#!/alinanbilet/" + ucusid;
             $window.location.href = "/#!/alinanbilet/" + ucusid;
 
 
