@@ -8,8 +8,8 @@
 <link href="examples/carousel/carousel.css" rel="stylesheet">
 <div class="btn-group btn-breadcrumb">
             <a href="#!" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#!/ucuslar" class="btn btn-primary">Uçuşlar</a>
-            <a href="#!/ucusbilgileri" class="btn btn-primary">Uçuş Bilgileri</a>
+            <a href="#!/ucuslar/:nereden/:nereye/:checkin/:checkout/:yet/:cocuk" class="btn btn-primary">Uçuşlar</a>
+            <a href="#!/ucuslar/:ucusid" class="btn btn-primary">Uçuş Bilgileri</a>
             
         </div>
 <div class="container">
@@ -22,7 +22,7 @@
             <div class="padding30 grey">
 
 
-                <span class="size16px bold dark left">Passengers</span>
+                <span class="size16px bold dark left">Yolcular</span>
                 <div class="roundstep active right">1</div>
                 <div class="clearfix"></div>
                 <div class="line4"></div>
@@ -31,17 +31,17 @@
                 <div class="row">
 
                     <div class="col-md-4">
-                        <span class="size13 dark">Surname*</span>
+                        <span class="size13 dark">Soyadı*</span>
                         <input type="text" class="form-control " placeholder="" ng-model="user.surname">
                     </div>
                     <div class="col-md-4">
-                        <span class="size13 dark">Name*</span>
+                        <span class="size13 dark">Adı*</span>
                         <input type="text" class="form-control " placeholder="" ng-model="user.name">
                     </div>
                     <div class="col-md-4">
                         <div class="w50percent">
-                            <span class="size13 dark">Date of birth*</span>
-                            <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy" ng-model="user.birthday"/>
+                            <span class="size13 dark">Doğum Tarihi*</span>
+                            <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="Gün/Ay/Yıl" ng-model="user.birthday"/>
                         </div>
                         <div class="w50percentlast">
                             <div class="w90percentlast right">
@@ -49,13 +49,13 @@
                                 <div class="radio radiomargin0">
                                     <label>
                                         <input type="radio" checked="" name="optionsRadios2" id="optionsRadios2" value="male" ng-model="user.sex">
-                                        Male
+                                        Erkek
                                     </label>
                                 </div>
                                 <div class="radio radiomargin0">
                                     <label>
                                         <input type="radio" name="optionsRadios2" id="optionsRadios2" value="female" ng-model="user.sex">
-                                        Female
+                                        Bayan
                                     </label>
                                 </div>
                             </div>
@@ -65,46 +65,26 @@
                     <div class="clearfix"></div><br />
 
                     <div class="col-md-4">
-                        <span class="size13 dark">Citizenship*</span>
+                        <span class="size13 dark">Uyruk*</span>
                         <select class="form-control mySelectBoxClass">
-                            <option selected>United States of America</option>
+                            <option selected>Turkey</option>
                             <option>United Kingdom</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <span class="size13 dark">Document series and number*</span>
+                        <span class="size13 dark">Seri Numarası*</span>
                         <input type="text" class="form-control " placeholder="">
                     </div>
                     <div class="col-md-4">
-                        <span class="size13 dark">Expiry date (if specified)*</span>
-                        <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy" />
+                        <span class="size13 dark">Son Kullanma Tarihi*</span>
+                        <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="Gün/Ay/Yıl" />
                     </div>
 
                     <div class="clearfix"></div><br />
 
-                    <div class="col-md-4">
-                        <div class="checkbox mt-5">
-                            <label>
-                                <input type="checkbox">Bonus card OneWorld
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <fieldset>
-                            <select class="form-control mySelectBoxClass">
-                                <option selected>Air Berlin</option>
-                                <option>Air Berlin</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    <div class="col-md-4">
-                        <fieldset >
-                            <select class="form-control mySelectBoxClass" id="disabledSelect">
-                                <option selected>Card number</option>
-                                <option>xxx-xxx-xxx-732</option>
-                            </select>
-                        </fieldset>
-                    </div>
+                  
+                  
+                  
                     <div class="clearfix"></div>
 
                 </div>
@@ -214,17 +194,17 @@
 
 
 
-                <span class="size16px bold dark left">Customer </span>
+                <span class="size16px bold dark left">Müşteri </span>
                 <div class="roundstep right">2</div>
                 <div class="clearfix"></div>
                 <div class="line4"></div>
-                Please tell us who will be checking in. Must be 18 or older. <br /><br />
+                Lütfen kimin kontrol edeceğini belirtin. 18 yaşında veya daha büyük olmalı. <br /><br />
 
                 <div class="col-md-4 textright">
-                    <div class="margtop15"><span class="dark">Contact Name:</span><span class="red">*</span></div>
+                    <div class="margtop15"><span class="dark">İletişim Adı:</span><span class="red">*</span></div>
                 </div>
                 <div class="col-md-4">
-                    <span class="size12">First and Last Name*</span>
+                    <span class="size12">Adı ve Soyadı*</span>
                     <input type="text" class="form-control " placeholder="">
                 </div>
                 <div class="col-md-4 textleft margtop15">
@@ -233,17 +213,17 @@
 
                 <br />
                 <div class="col-md-4 textright">
-                    <div class="margtop7"><span class="dark">Phone Number:</span><span class="red">*</span></div>
+                    <div class="margtop7"><span class="dark">Telefon No:</span><span class="red">*</span></div>
                 </div>
                 <div class="col-md-4">
-                    <span class="size12">Country code*</span>
+                    <span class="size12">Ülke Kodu*</span>
                     <select class="form-control mySelectBoxClass">
-                        <option selected>xxx-xxx-xxx-772</option>
-                        <option>xxx-xxx-xxx-039</option>
+                        <option selected>+90</option>
+                        <option>+39</option>
                     </select>
                 </div>
                 <div class="col-md-4 textleft">
-                    <span class="size12">Preferred Phone Number*</span>
+                    <span class="size12">(5**)***-**-**)</span>
                     <input type="text" class="form-control" placeholder="">
                 </div>
                 <div class="clearfix"></div>
@@ -252,7 +232,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-8 textleft">
-                    Special Requests (optional)
+                   Özel İstekler(İsteğe Bağlı)
                     <!-- Collapse 3 -->
                     <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse3"></button>
                     <div id="collapse3" class="collapse">
@@ -268,7 +248,7 @@
 
                 <br />
                 <br />
-                <span class="size16px bold dark left">How would you like to pay?</span>
+                <span class="size16px bold dark left">Ödemeyi nasıl yapacağım?</span>
                 <div class="roundstep right">3</div>
                 <div class="clearfix"></div>
                 <div class="line4"></div>
@@ -278,16 +258,7 @@
                 <br />
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-4">
-                    Enter a coupon code
-                    <!-- Collapse 5 -->
-                    <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button>
-                    <div id="collapse5" class="collapse">
-                        <input type="text" class="form-control margtop10" placeholder="">
-                    </div>
-                    <!-- End of collapse 5 -->
-                    <div class="clearfix"></div>
-                </div>
+               
                 <div class="col-md-4 textleft">
                 </div>
                 <div class="clearfix"></div>
@@ -297,7 +268,7 @@
                 <!-- Nav tabs  !!! MODAL ANGULAR BOOTSTRAP İLE GUNCELLENMELİ EKSİK-->
                 <ul class="nav navigation-tabs">
                     <li class="active"><a href="" data-toggle="tab">Credit/Debit card</a></li>
-                    <li><a href="" data-toggle="tab">Paypal</a></li>
+                    
                 </ul>
 
                 <!-- Tab panes -->
@@ -307,7 +278,7 @@
                     <div class="tab-pane active" id="card">
 
                         <div class="col-md-4 textright">
-                            <div class="margtop15"><span class="dark">Debit/Credit Card Number:</span><span class="red">*</span></div>
+                            <div class="margtop15"><span class="dark">Kart Numarası:</span><span class="red">*</span></div>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control margtop10" placeholder="">
@@ -318,12 +289,12 @@
 
                         <br />
                         <div class="col-md-4 textright">
-                            <div class="margtop7"><span class="dark">Card Type:</span><span class="red">*</span></div>
+                            <div class="margtop7"><span class="dark">Kart Tipi:</span><span class="red">*</span></div>
                         </div>
                         <div class="col-md-4">
                             <select class="form-control mySelectBoxClass">
-                                <option selected>xxx-xxx-xxx-772</option>
-                                <option>xxx-xxx-xxx-039</option>
+                                <option selected>VİSA</option>
+                                <option>MASTER</option>
                             </select>
                         </div>
                         <div class="col-md-4 textleft">
@@ -332,44 +303,44 @@
 
                         <br />
                         <div class="col-md-4 textright">
-                            <div class="margtop7"><span class="dark">Expiration Date:</span><span class="red">*</span></div>
+                            <div class="margtop7"><span class="dark">Son Kullanma Tarihi:</span><span class="red">*</span></div>
                         </div>
                         <div class="col-md-4">
 
                             <div class="w50percent">
                                 <div class="wh90percent">
                                     <select class="form-control mySelectBoxClass">
-                                        <option selected>01 JAN</option>
-                                        <option>02 FEB</option>
-                                        <option>03 MAR</option>
-                                        <option>04 APR</option>
-                                        <option>05 MAY</option>
-                                        <option>06 JUN</option>
-                                        <option>07 JUL</option>
-                                        <option>08 AUG</option>
-                                        <option>09 SEP</option>
-                                        <option>10 OCT</option>
-                                        <option>11 NOV</option>
-                                        <option>12 DEC</option>
+                                        <option selected> OCAK</option>
+                                        <option> ŞUBAT</option>
+                                        <option> MART</option>
+                                        <option> NİSAN</option>
+                                        <option> MAYIS</option>
+                                        <option> HAZİRAN</option>
+                                        <option> TEMMUZ</option>
+                                        <option> AĞUSTOS</option>
+                                        <option> EYLÜL</option>
+                                        <option> EKİM</option>
+                                        <option> KASIM</option>
+                                        <option> ARALIK</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="w50percentlast">
                                 <div class="wh90percent right">
                                     <select class="form-control mySelectBoxClass">
-                                        <option selected>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                        <option>24</option>
-                                        <option>25</option>
-                                        <option>26</option>
+                                        <option selected>2018</option>
+                                        <option>2019</option>
+                                        <option>2020</option>
+                                        <option>2021</option>
+                                        <option>2022</option>
+                                        <option>2023</option>
+                                        <option>2024</option>
+                                        <option>2025</option>
+                                        <option>2026</option>
+                                        <option>2027</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                        <option>2030</option>
                                     </select>
                                 </div>
                             </div>
@@ -382,37 +353,28 @@
 
                         <br />
                         <div class="col-md-4 textright">
-                            <div class="margtop15"><span class="dark">Card Identification Number:</span><span class="red">*</span></div>
+                            <div class="margtop15"><span class="dark">Kart Kimlik No:</span><span class="red">*</span></div>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control margtop10" placeholder="">
                         </div>
-                        <div class="col-md-4 textleft margtop15">
-                            What's this?
-                        </div>
+                        
                         <div class="clearfix"></div>
 
 
-                        <div class="col-md-4 textright">
-                            <div class="margtop15"><span class="dark">Billing ZIP Code:</span><span class="red">*</span></div>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control margtop10" placeholder="">
-                        </div>
+                       
                         <div class="col-md-4 textleft margtop15">
                         </div>
                         <div class="clearfix"></div>
 
 
                         <div class="col-md-4 textright">
-                            <div class="margtop15"><span class="dark"> Cardholder Name:</span><span class="red">*</span></div>
+                            <div class="margtop15"><span class="dark"> Kart Sahibi :</span><span class="red">*</span></div>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control margtop10" placeholder="">
                         </div>
-                        <div class="col-md-4 textleft margtop15">
-                            (as it appears on the card)
-                        </div>
+                        
                         <div class="clearfix"></div>
 
                     </div>
@@ -422,10 +384,10 @@
 
                         <div class="alert alert-warning fade in">
                             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                            <strong>Important:</strong> You will be redirected to PayPal's website to securely complete your payment.
+                            <strong>Önemli:</strong>Ödemenizi güvenli bir şekilde tamamlamak için kartınızın web sitesine yönlendirileceksiniz.
                         </div>
 
-                        <button type="submit" class="btn-search5">Proceed to paypal</button>
+                        <button type="submit" class="btn-search5">Ödemeyi Onayla</button>
 
                     </div>
                     <!-- End of Tab 2 -->
@@ -434,15 +396,15 @@
 
                 <br />
                 <br />
-                <span class="size16px bold dark left">Where should we send your confirmation?</span>
+                <span class="size16px bold dark left">Onayınızı nereye göndermeliyiz?</span>
                 <div class="roundstep right">4</div>
                 <div class="clearfix"></div>
                 <div class="line4"></div>
-                Please enter the email address where you would like to receive your confirmation.<br />
+                Lütfen onayınızı almak istediğiniz e-posta adresini giriniz.<br />
 
 
                 <div class="col-md-4 textright">
-                    <div class="mt15"><span class="dark">Email Address:</span><span class="red">*</span></div>
+                    <div class="mt15"><span class="dark">Email Adres:</span><span class="red">*</span></div>
                 </div>
                 <div class="col-md-4">
                     <input type="text" class="form-control margtop10" placeholder="">
@@ -453,24 +415,24 @@
 
                 <br />
                 <br />
-                <span class="size16px bold dark left">Review and book your trip</span>
+                <span class="size16px bold dark left">Seyahati Görüntüle</span>
                 <div class="roundstep right">5</div>
                 <div class="clearfix"></div>
                 <div class="line4"></div>
 
                 <div class="alert alert-info">
-                    Attention! Please read important flight information!<br />
+                    Dikkat! Lütfen önemli uçuş bilgilerini okuyun!<br />
                     <p class="size12">
-                        • You have chosen the version offered by foreign partners. In case of visa issue refusal, disease, etc. the
-                        refund without penalty provisions is impossible! The ticket will refunded according to the airline rules.
+                        •Yabancı ortaklar tarafından sunulan sürümü seçtiniz. Vize verilmesi durumunda red, hastalık, vb.
+                        para cezası olmadan geri ödeme imkansızdır! Bilet, havayolu kurallarına göre iade edilir.
                     </p>
                 </div>
-                By selecting to complete this booking I acknowledge that I have read and accept the <a href="#" class="clblue">
-                    rules &
-                    restrictions
-                </a> <a href="#" class="clblue">terms & conditions</a> , and <a href="#" class="clblue">privacy policy</a>.	<br />
+                Bu rezervasyonu tamamlamayı seçerek  <a href="#" class="clblue">
+                    kurallar &
+                    kısıtlamalar,
+                </a> <a href="#" class="clblue">şartlar & koşullar</a> , ve <a href="#" class="clblue">gizlilik politikasını</a> kabul ediyorum.	<br />
 
-                <button type="submit" class="bluebtn margtop20" ng-click="complete(user)">Complete booking</button>
+                <button type="submit" class="bluebtn margtop20" ng-click="complete(user)">SEYAHATİ TAMAMLA</button>
 
 
             </div>
@@ -482,7 +444,7 @@
 
             <div class="pagecontainer2 paymentbox grey">
                 <div class="padding20">
-                    <span class="opensans size18 dark bold">Trip Summary</span>
+                    <span class="opensans size18 dark bold">Uçuş Özeti</span>
                 </div>
                 <div class="line3"></div>
 
@@ -584,36 +546,36 @@
 
 
 
-                    <span class="dark">2 Tickets: Roundtrip</span>
+                    <span class="dark">2 Bilet: Gidiş-Dönüş</span>
                     <div class="fdash mt10"></div><br />
-                    Traveler 1: Adult <span class="right bold green">$787.25</span>
+                    Yolcu 1: Yetişkin <span class="right bold green">787 TL</span>
                     <!-- Collapse 1 -->
                     <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse1"></button>
                     <div id="collapse1" class="collapse in">
                         <div class="left size14">
-                            Flight<br />
-                            Taxes & Fees
+                            Uçuş<br />
+                            Vergiler & ücretler
                         </div>
                         <div class="right size14">
-                            $458.00<br />
-                            $329.25
+                            458 TL<br />
+                            329 TL
                         </div><div class="clearfix"></div>
                     </div>
                     <!-- End of collapse 1 -->
 
                     <div class="fdash mt10"></div><br />
 
-                    Traveler 2: Adult <span class="right bold green">$787.25</span>
+                    Yolcu 2: Yetişkin <span class="right bold green">787 TL</span>
                     <!-- Collapse 1 -->
                     <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse2"></button>
                     <div id="collapse2" class="collapse">
                         <div class="left size14">
-                            Flight<br />
-                            Taxes & Fees
+                            Uçuş<br />
+                            Vergiler & Ücretler
                         </div>
                         <div class="right size14">
-                            $458.00<br />
-                            $329.25
+                            458 TL<br />
+                            329 TL
                         </div><div class="clearfix"></div>
                     </div>
                     <!-- End of collapse 1 -->
@@ -628,8 +590,8 @@
                 </div>
                 <div class="line3"></div>
                 <div class="padding30">
-                    <span class="left size14 dark">Trip Total:</span>
-                    <span class="right lred2 bold size18">$1,574.50</span>
+                    <span class="left size14 dark">Seyehat Toplam:</span>
+                    <span class="right lred2 bold size18">1,574 TL</span>
                     <div class="clearfix"></div>
                 </div>
 
@@ -639,30 +601,33 @@
             <div class="pagecontainer2 needassistancebox">
                 <div class="cpadding1">
                     <span class="icon-help"></span>
-                    <h3 class="opensans">Need Assistance?</h3>
-                    <p class="size14 grey">Our team is 24/7 at your service to help you with your booking issues or answer any related questions</p>
-                    <p class="opensans size30 lblue xslim">1-866-599-6674</p>
+                    <h3 class="opensans">Yardım için?</h3>
+                    <p class="size14 grey">Ekibimiz, rezervasyon sorunlarınızda size yardımcı olmak veya ilgili soruları yanıtlamak için 7/24 hizmetinizdedir.</p>
+                    <p class="opensans size30 lblue xslim">(542) 790 35 12</p>
                 </div>
             </div><br />
 
             <div class="pagecontainer2 loginbox">
                 <div class="cpadding1">
                     <span class="icon-lockk"></span>
-                    <h3 class="opensans">Log in</h3>
-                    <input type="text" class="form-control logpadding" placeholder="Username">
+                    <h3 class="opensans">Giriş</h3>
+                    <input type="text" class="form-control logpadding" placeholder="Kullanıcı Adı">
                     <br />
-                    <input type="text" class="form-control logpadding" placeholder="Password">
+                    <input type="text" class="form-control logpadding" placeholder="Şifre">
                     <div class="margtop20">
                         <div class="left">
                             <div class="checkbox padding0">
                                 <label>
-                                    <input type="checkbox">Remember
+                                    <input type="checkbox">Beni Hatırla
                                 </label>
                             </div>
-                            <a href="#" class="greylink">Lost password?</a><br />
+                            <a href="#" class="greylink">Şifremi Kaybettim?</a><br />
                         </div>
                         <div class="right">
-                            <button class="btn-search5" type="submit" onclick="">Login</button>
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">
+                                <i class="ace-icon fa fa-key"></i>
+                                Giriş
+                            </button>
                         </div>
                     </div>
                     <div class="clearfix"></div><br />
@@ -681,10 +646,10 @@
 
 
 
-<p>UÇUŞ BİLGİLERİ YÜKLENECEK - NEREDEN NEREYE SAAT KAÇTA HANGİ FİYATA - MÜŞTERİ BİLGİLERİ İSTENECEK - TEL NO VB. EĞER ÜYE İSE O DA OTAMATİK YÜKLENECEK - ÖDEME EKRANINA GEÇMEK İÇİN POST</p>
+<!--<p>UÇUŞ BİLGİLERİ YÜKLENECEK - NEREDEN NEREYE SAAT KAÇTA HANGİ FİYATA - MÜŞTERİ BİLGİLERİ İSTENECEK - TEL NO VB. EĞER ÜYE İSE O DA OTAMATİK YÜKLENECEK - ÖDEME EKRANINA GEÇMEK İÇİN POST</p>--!>
 
 	<!-- Javascript  -->
-<script src="js/js-payment.js"></script>
+
 
 <!-- Nicescroll  -->
 <script src="js/jquery.nicescroll.min.js"></script>
@@ -693,7 +658,7 @@
 <script src="js/functions.js"></script>
 
 <!-- Custom Select -->
-<script type='text/javascript' src='/js/jquery.customSelect.js'></script>
+<script type='text/javascript' src='js/jquery.customSelect.js'></script>
 
 <!-- Load Animo -->
 <script src="plugins/animo/animo.js"></script>
