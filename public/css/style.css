@@ -390,7 +390,7 @@ figure {
   z-index: 2;
   font-size: 22px;
   text-transform: uppercase;
-  margin-top: 11px;
+  margin-top: 14px;
   font-weight: normal;
   float: left;
   padding-left: 0px;
@@ -2347,6 +2347,9 @@ padding-bottom: 10px;*/
 .form-group-addon{
 	padding-left: -2px;
 }
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 <div class="btn-group btn-breadcrumb">
             <a href="#!" class="btn btn-primary"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#!/login" class="btn btn-primary">Login</a>
-            <a href="#!/signup" class="btn btn-primary">Signup</a>
+            <a href="#!/login" class="btn btn-primary">Giriş</a>
+            <a href="#!/signup" class="btn btn-primary">Kayıt Ol</a>
             
         </div>
 <div class="page-content">
@@ -12,76 +12,69 @@
                 <div class="widget-body">
                     <div class="widget-main">
                         <h2 class="header blue lighter bigger" style="text-align: center;">
-                            SignUp
+                            Kayıt Ol
                         </h2>
 
                         <br/>
                         <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
                         <form name="signupForm" class="form-horizontal" role="form" style="padding-top: 20px;">
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="email">Email</label>
+                                <label class="col-sm-5 control-label no-padding-right" for="email">E-Posta</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                        <input type="text" class="form-control" placeholder="Email" name="email" ng-model="signup.email" focus/>
-                                        <span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span> 
+                                        <input type="text" class="form-control" placeholder="E-Posta" name="email" ng-model="signup.email" focus/>
+                                        <span ng-show="signupForm.email.$error.email" class="help-inline">E-posta geçerli değil</span> 
                                     </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="password">Password</label>
+                                <label class="col-sm-5 control-label no-padding-right" for="password">Şifre</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                <input type="password" class="form-control" name = "password" placeholder="Password" ng-model="signup.password" required/>
-                                <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter Password.</small>
+                                <input type="password" class="form-control" name = "Şifre" placeholder="Şifre" ng-model="signup.password" required/>
+                                <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Şifre Giriniz.</small>
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="password2">Confirm Password</label>
+                                <label class="col-sm-5 control-label no-padding-right" for="password2">Şifre Doğrula</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                <input type="password" class="form-control" name="password2" placeholder="Password Again" ng-model="signup.password2" password-match="signup.password" required/>                                
-                                <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Enter password again.</small>
+                                <input type="password" class="form-control" name="password2" placeholder="Şifre Doğrula" ng-model="signup.password2" password-match="signup.password" required/>                                
+                                <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Tekrar Giriniz.</small>
 
-                               <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Password do not match.</small>
+                               <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Şifre Uyuşmadı.</small>
 
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="name">Name</label>
+                                <label class="col-sm-5 control-label no-padding-right" for="name">İsim</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Name" ng-model="signup.name" />
+                                <input type="text" class="form-control" placeholder="İsim" ng-model="signup.name" />
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="phone">Phone</label>
+                                <label class="col-sm-5 control-label no-padding-right" for="phone">Telefon</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Phone" name="phone" ng-model="signup.phone"/>
+                                <input type="text" class="form-control" placeholder="Telefon" name="phone" ng-model="signup.phone"/>
                             </span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" for="address">Address</label>
-                                <div class="col-sm-7">
-                                    <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Address" ng-model="signup.address" />
-                            </span>
-                                </div>
-                            </div>
+                          
                             <div class="form-group">
                                 <span class="lbl col-sm-5"> </span>
                                 <div class="col-sm-7">
                                     <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
-                                        Sign Up
+                                        Kayıt Ol
                                     </button>
                                 </div>
                             </div>
                             <span class="lbl col-sm-5"> </span>
-                            <div class="col-sm-7">Already have an account? <a href="#!/login">SignIn</a>
+                            <div class="col-sm-7">Zaten Hesabınız var mı? <a href="#!/login">Giriş</a>
                             </div>
                         </form>
                     </div>

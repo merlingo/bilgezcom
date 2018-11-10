@@ -44,6 +44,11 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
             //$window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
             $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
 
+            
+            
+            
+            
+            
         }
         $scope.popup = {};
         $scope.popup = {

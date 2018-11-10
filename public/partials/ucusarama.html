@@ -29,6 +29,10 @@
                                 color: black;
                             }
                         </style>
+                 
+    
+                        
+                        
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <form >
@@ -49,7 +53,7 @@
                                         <div class="col-xxs-12 col-xs-6 mt alternate">
                                             <div class="input-group">
                                                 <label for="date-start">Check In:</label>
-                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy" uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkin" is-open="popup.acik"  close-text="Kapat"/>
+                                                <input type="text" class="form-control"  placeholder="Gün/Ay/Yıl" uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkin" is-open="popup.acik"  close-text="Kapat"/>
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-sm full" ng-click="datesecac()"><i class="glyphicon glyphicon-calendar"></i></button>
                                                 </span>
@@ -58,7 +62,7 @@
                                         <div class="col-xxs-12 col-xs-6 mt alternate">
                                             <div class="input-group">
                                                 <label for="date-end">Check Out:</label>
-                                                <input type="text" class="form-control"  placeholder="dd/mm/yyyy"  uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkout" is-open="popup2.acik"  close-text="Kapat"/>
+                                                <input type="text" class="form-control"  placeholder="Gün/Ay/Yıl"  uib-datepicker-popup="dd/MM/yyyy" ng-model="ucusgirdi.checkout" is-open="popup2.acik"  close-text="Kapat"/>
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-primary btn-sm" ng-click="datesecac2()"><i class="glyphicon glyphicon-calendar"></i></button>
                                                 </span>
@@ -66,11 +70,11 @@
                                         </div>
                                         <div class="col-lg-12 mt">
                                             <section>
-													<label for="class">Class:</label>
+													<label for="class">Sınıf:</label>
 													<select class="form-control">
-														<option value="" enabled selected>Economy</option>
+														<option value="" enabled selected>Ekonomi</option>
 														
-														<option value="first">First</option>
+														<option value="first">Birinci Sınıf</option>
 														<option value="business">Business</option>
 													</select>
 												</section>
@@ -98,6 +102,8 @@
                                                 </select>
                                             </section>
                                         </div>
+                                        
+                                        
                                         <div class="col-xs-12">
                                             <!--<input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara">-->
                                             <input type="submit" class="btn btn-primary btn-block" value="Uçuş Ara" ng-click="ucusara(ucusgirdi)">
