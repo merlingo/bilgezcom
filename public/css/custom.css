@@ -537,7 +537,7 @@ z-index:100;
 
 .btn-search5 {
 	text-transform:uppercase;
-	border: 1px solid #d8d8d8;
+	border: 1px;
 	background: #f2f2f2;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f2f2));
 	background: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -573,7 +573,7 @@ z-index:100;
 
 .bluebtn {
 	text-transform:uppercase;
-	border: 1px solid #006699;
+	border: 1px ;
 	background: #3994d4;
 	background: -webkit-gradient(linear, left top, left bottom, from(#3994d4), to(#1d7db7));
 	background: -webkit-linear-gradient(top, #3994d4, #1d7db7);
