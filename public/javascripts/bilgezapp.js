@@ -1,7 +1,7 @@
 ﻿//#################INDEX.HTML ICIN ANGULARJS KODLARI BURAYA YAZILACAK#############
 'use strict';
 /* App Module */
-var bilgezApp = angular.module('bilgez', ['ngRoute', 'ngAnimate', 'toaster', 'bilgezControllers', 'bilgezServices', 'angularFileUpload', "ui.bootstrap"]);
+var bilgezApp = angular.module('bilgez', ['ngRoute', 'ngAnimate', 'toaster', 'bilgezControllers', 'bilgezServices', 'angularFileUpload', "ui.bootstrap","ngLocale"]);
 bilgezApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider.
@@ -35,10 +35,6 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'partials/signup.html',
                 controller: 'signup'  
             })
-         
-            
-        
-        
             .otherwise({
                 redirectTo: '/'
             });

@@ -35,14 +35,8 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
 
         //ucusGirdi View Model yaratilir
         //$scope.ucusgirdi.nereden = "İstanbul";
-        $scope.ucusgirdi = {
-            checkin: new Date(),
-            checkout: new Date(),
-            yetismus: "1",
-            cocukmus: "1",
-            sinif:"Ekonomi"
-        };
-        $scope.ucusgirdi.checkout.setDate($scope.ucusgirdi.checkin.getDate() + 1);
+        $scope.ucusgirdi = {};
+
         $scope.ucusara = function (ucusgirdi) {
            // $window.alert(JSON.stringify(ucusgirdi.nereden))
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -50,11 +44,6 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
             //$window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
             $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
 
-            
-            
-            
-            
-            
         }
         $scope.popup = {};
         $scope.popup = {
