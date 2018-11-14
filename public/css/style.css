@@ -388,10 +388,10 @@ figure {
 #fh5co-logo {
   position: relative;
   z-index: 2;
-  font-size: 22px;
-  text-transform: uppercase;
+  font-size: 27px;
+  text-transform: unset;
   margin-top: 14px;
-  font-weight: normal;
+  font-weight: 700;
   float: left;
   padding-left: 0px;
 }
@@ -625,7 +625,7 @@ figure {
 .nav-tabs a {
   border: none !important;
   font-weight: bold;
-  padding: 15px 20px !important;
+  padding: 12px 15px !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -634,8 +634,8 @@ figure {
 @media screen and (max-width: 768px) {
   .nav-tabs a {
     font-weight: normal;
-    font-size: 13px;
-    padding: 15px 10px !important;
+    font-size: 15px;
+    padding: 10px 10px !important;
   }
 }
 .nav-tabs .active a {
@@ -1815,7 +1815,7 @@ a.s3-btn5 {
 }
 
 .tab-content .btn {
-  letter-spacing: 0;
+  letter-spacing: 33;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
