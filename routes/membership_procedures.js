@@ -65,7 +65,16 @@ router.post('/signin', function (req, res) {
 });
 
 router.get('/me', function (req, res) {
-    res.json(req.decoded);
+    console.log("me içi:" + req.decoded);
+    Client.findOne({ "_id": req.decoded._id }, function (err, user) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+            return;
+        }
+        res.json(user);
+    });
+    //res.json(req.decoded);
 })
 
 router.get('/users', function (req, res) {

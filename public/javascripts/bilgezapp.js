@@ -6,7 +6,7 @@ bilgezApp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider.
             when('/', {
-                templateUrl: '/partials/main.html',
+                templateUrl: 'partials/main.html',
                 controller: 'ucusCtrl'
             }).when('/havalimani', {
                 templateUrl: '/partials/havalimani.html',
@@ -45,6 +45,7 @@ bilgezApp.directive('focus', function () {
         element[0].focus();
     }
 });
+//bilgezApp.directive("notifications", notifications);
 
 bilgezApp.directive('passwordMatch', [function () {
     return {
@@ -72,6 +73,6 @@ bilgezApp.directive('passwordMatch', [function () {
     };
 }]);
 
-//bilgezApp.config(["$httpProvider",function ($httpProvider) {
-//    $httpProvider.interceptors.push('AuthInterceptor');
-//}]);
+bilgezApp.config(["$httpProvider",function ($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
+}]);

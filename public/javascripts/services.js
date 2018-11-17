@@ -131,21 +131,16 @@ serviceModule.factory("token", ["$window", function ($window) {
     return authTokenFactory;
 }]);
 
-//serviceModule.factory("AuthInterceptor", function ($q, $location, token) {
-//    var interceptor = {};
-//    interceptor.request = function (config) {
-//        var token = token.getToken();
-//        if (token) {
-//            config.headers['x-access-token'] = token;
+serviceModule.factory("AuthInterceptor",['token', function (token) {
+    var interceptor = {};
+    interceptor.request = function (config) {
+        var t = token.getToken();
+        console.log(t);
+        if (t) {
+            config.headers['x-access-token'] = t;
+        }
+        return config;
+    };
 
-//        }
-//        return config;
-//    };
-//    interceptor.response = function(response) {
-//        if (response.headers('New-Jwt-Token')) {
-//            console.log(response.headers('New-Jwt-Token'));
-//        }
-//        return response;
-//    }
-//    return interceptor;
-//});
+    return interceptor;
+}]);

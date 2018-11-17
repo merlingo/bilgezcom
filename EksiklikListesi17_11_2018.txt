@@ -1,0 +1,20 @@
+Biletgezegeni Eksik Listesi
+1- verilerin (API*) bağlanması
+2- Oturum açma ve kapama işlemleri (completed) +
+3- hesap bilgileri
+4- Autocomplete standart şekilde düzenleme
+5- ucuşlar - filtreleme
+6- uçuşlar saat tarih ülke havalimanı gibi bilgilerin doğru gelmesi
+7- pagination
+8- ucusbilgileri gerçek bilgilerin getirilmesi
+9- girilen tüm bilgilerin bağlanması
+10- tüm bilgiler posting
+11- banka onayına yönlendirme
+12- giriş yapabilme
+13- sayfa hızı optimizasyonu
+14- fontların aynı olması
+15- animasyonlar
+16- en ucuz uçuşlar
+17- en iyi uçuş rotalarını bulma
+18- ilginç uçuşlar ile uçuş paketleri oluşturma
+19- en lüks tatiller ile özel arama yapabilme

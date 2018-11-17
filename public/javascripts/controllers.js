@@ -12,18 +12,22 @@ var bilgezControllers = angular.module('bilgezControllers', []);
 bilgezControllers.controller('headerCtrl', ['$scope', '$window','UserService',
     function ($scope, $window, UserService) {
         var user = UserService.getUser();
+        console.log("headerda user:" + JSON.stringify(user));
         $scope.uyemi = false;
 
         if (user) {
-            $scope.uyemi = true;
-            $scope.uyeadi =user.name;
+            user.then(function (data) {
+                console.log("user var:" + data.name);
+                $scope.uyemi = true;
+                $scope.uyeadi = data.name;
+            });
         }
         $scope.cikis = function () {
             UserService.outUser();
             $scope.uyemi = false;
         }
         $scope.giris = function () {
-            UserService.outUser();
+           // UserService.outUser();
             $scope.uyemi = true;
             $window.location.href = "/#!/";
         }
