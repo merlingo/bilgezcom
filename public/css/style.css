@@ -2347,7 +2347,14 @@ padding-bottom: 10px;*/
 	padding-left: -2px;
 }
 
-
+.content {
+  position: relative;
+}
+#right-panel-link {
+  position: absolute;
+  top: -4;
+  right: 9;
+}
 
 
 
