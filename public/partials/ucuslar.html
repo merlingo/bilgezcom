@@ -22,7 +22,7 @@
 
 
         <div id="{{ucus._id}}" class="offset-2" ng-repeat="ucus in ucuslist">
-            <div class="fblueline"><b>{{ucus.nereden.state}}</b>{{ucus.nereden.city}}  <span class="farrow"></span> <b>{{ucus.nereye.state}}</b> {{ucus.nereye.city}}</div>
+            <div class="fblueline"><b>{{ucus.nereden.city}}</b>{{ucus.nereden.country}}  <span class="farrow"></span> <b>{{ucus.nereye.city}}</b> {{ucus.nereye.country}}</div>
 
 
             <!-- GOING TICKET-->
@@ -156,13 +156,12 @@
     <div class="hpadding20">
 
         <ul class="pagination right paddingbtm20">
-            <li class="disabled"><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
+            <li class="disabled"><a href="#!/ucuslar/{{aynilink()}}">&laquo;</a></li>
+            <li><a href="#!/ucuslar/{{aynilink()}}">1</a></li>
+            <li><a href="#!/ucuslar/{{aynilink()}}">2</a></li>
+            <li><a href="#!/ucuslar/{{aynilink()}}">3</a></li>
+
+            <li><a href="#!/ucuslar/{{aynilink()}}">&raquo;</a></li>
         </ul>
 
     </div>

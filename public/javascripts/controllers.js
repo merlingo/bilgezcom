@@ -8,7 +8,15 @@ var bilgezControllers = angular.module('bilgezControllers', []);
 //router ile ucuslar.html e yonlendir ve listeyi orada bir template ile listele
 //$window.location.href = "/#!/ucuslar";
 //            });
+    Date.prototype.yyyymmdd = function () {
+        var mm = this.getMonth() + 1; // getMonth() is zero-based
+        var dd = this.getDate();
 
+        return [this.getFullYear(),
+        (mm > 9 ? '' : '0') + mm,
+        (dd > 9 ? '' : '0') + dd
+        ].join('/');
+    }
 bilgezControllers.controller('headerCtrl', ['$scope', '$window','UserService',
     function ($scope, $window, UserService) {
         var user = UserService.getUser();
@@ -75,7 +83,7 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
             $scope.popup2.acik = true;
         }
         $scope.getLocation = function (val) {
-            if (val.length < 3)
+            if (val.length < 1)
                 return;
             return $http.get('/API/havalimani/'+val,  {
             }).then(function (response) {
@@ -103,23 +111,26 @@ bilgezControllers.controller('ucuslarCtrl', ['$scope', '$window', '$routeParams'
             var u = {};
             for (var ucusno in ucuslist) {
                 var ucus = ucuslist[ucusno];
+                var depdate = new Date(ucus.tarih);
+                var hrs = ucus.sure.replace("s", "");
+                var arrdate = new Date(depdate.getTime() + (1000 * 60 * 60 * hrs));
                 u = {
                     "_id": ucus._id,
                     nereden: {
-                        state: ucus.nereden.state,
-                        city: ucus.nereden.city
+                        city: ucus.nereden.city,
+                        country: ucus.nereden.country,
                     },
                     nereye: {
-                        state: ucus.nereye.state,
-                        city: ucus.nereye.city
+                        city: ucus.nereye.city,
+                        country: ucus.nereye.country
                     },
                     departure: {
-                        tarih: "tarih",
-                        saat:"saat"
+                        tarih: depdate.yyyymmdd(),
+                        saat: depdate.getHours() + ":" + depdate.getMinutes()
                     },
                     arrival: {
-                        tarih: "tarih",
-                        saat: "saat"
+                        tarih: arrdate.yyyymmdd(),
+                        saat: arrdate.getHours() + ":" + arrdate.getMinutes()
                     },
                 };
                 $scope.ucuslist.push(u);
@@ -142,7 +153,7 @@ bilgezControllers.controller('ucusbilgiCtrl', ['$scope', '$window', '$routeParam
         //$window.alert(ucusid);
         $scope.ubilgi = {};
         ucus.getir({ id:ucusid }, function (u, getResponseHeaders) {
-            $window.alert(JSON.stringify(u));
+            //$window.alert(JSON.stringify(u));
             $scope.ubilgi = u;
         });
         $scope.complete = function (bilet) {
