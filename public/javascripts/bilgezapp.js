@@ -45,6 +45,29 @@ bilgezApp.directive('focus', function () {
         element[0].focus();
     }
 });
+
+bilgezApp.directive('bilgez', ['$animate', function($animate) {
+  return function(scope, element) {
+    element.on('click', function() {
+      if (element.hasClass('clicked')) {
+        $animate.removeClass(element, 'clicked');
+      } else {
+        $animate.addClass(element, 'clicked');
+      }
+    });
+  };
+}]);
+
+bilgezApp.run(function($animate) {
+  $animate.enabled(true);
+});
+
+
+
+
+
+
+
 //bilgezApp.directive("notifications", notifications);
 
 bilgezApp.directive('passwordMatch', [function () {
