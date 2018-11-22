@@ -567,7 +567,7 @@ figure {
 }
 @media screen and (max-width: 480px) {
   .tabulation label {
-    width: 100%;
+    width:;
   }
 }
 .tabulation input[type="text"] {
