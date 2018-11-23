@@ -1,5 +1,6 @@
 ﻿<script type="text/javascript">
     $(document).ready(function() {
+
       $("#panel1").click(function() {
         $("#arow1").toggleClass("fa-chevron-left");
         $("#arow1").toggleClass("fa-chevron-down");
