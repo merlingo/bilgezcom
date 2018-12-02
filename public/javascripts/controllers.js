@@ -1,5 +1,20 @@
 ﻿/* chapter5/controllers.js */
 'use strict';
+function detectmob() {
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+    ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 /* Controllers */
 var bilgezControllers = angular.module('bilgezControllers', []);
 //bilgezControllers.constant("Modernizr", Modernizr);
@@ -54,19 +69,16 @@ bilgezControllers.controller('ucusCtrl', ['$scope','$window','$location',"$http"
             cocukmus: "1",
             sinif:"Ekonomi"
         };
+        $scope.mobile = function () {
+            return detectmob();
+        }
+
         $scope.ucusgirdi.checkout.setDate($scope.ucusgirdi.checkin.getDate() + 1);
         $scope.ucusara = function (ucusgirdi) {
            // $window.alert(JSON.stringify(ucusgirdi.nereden))
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEEEEEEEEEEEEEEEEST OLDUUUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
             //$window.location.href = "/test#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
             $window.location.href = "/#!/ucuslar/" + ucusgirdi.nereden.code + "/" + ucusgirdi.nereye.code + "/" + ucusgirdi.checkin + "/" + ucusgirdi.checkout + "/" + ucusgirdi.yetismus + "/" + ucusgirdi.cocukmus;
-
-            
-            
-            
-            
-            
         }
         $scope.popup = {};
         $scope.popup = {

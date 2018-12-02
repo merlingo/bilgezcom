@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="description" content="" />
 	<meta name="keywords" content="bilet, ticket, flight, uçak" />
 	<meta name="author" content="WolfPack" />
 	<meta property="og:title" content=""/>
@@ -23,9 +23,6 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-
-         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="transitions.css" />
         
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="/bootstrap-social/bootstrap-social.css">
@@ -46,31 +43,15 @@
 	<body>
         <div ng-include src="'partials/bilgezheader.html'" class="slide-pop">
         </div>
-        <div id="fh5co-wrapper" class="slide-pop">
-            <div class="fh5co-overlay"></div>
-            <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover.jpg);">
-                <div class="desc">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-5 col-md-5">
-                                <div class="tabulation animate-box">
-                                    <iframe id="AramaIframe_v102" scrolling="no" frameborder="0" rel="nofollow" src="http://iframe.biletall.com/portals/biletgezegenicom/UI/Arama.aspx?AramaUrl=http://www.biletgezegeni.com/&IslemUrl=http://www.biletgezegeni.com/ucuslar&BiletGosterimUrl=http://www.biletgezegeni.com/bilet" style="margin:0px;width:400px;height:350px;"></iframe>
-                                </div>
-                            </div>
-                            <div class="desc2 animate-box">
-                                <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                    <h2>En  uygun uçuşlar </h2>
-                                    <h3>Şimdilik sadece dünya</h3>
-                                    <span class="price"></span>
-                               
-                                </div>
-                            </div>
-                        </div>
+        <div id="fh5co-wrapper" class="slide-pop" >
+                <div class="fh5co-overlay"></div>
+                <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover.jpg);">
+                    <div class="desc" ng-view>
+
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         
         <div ng-include src="'partials/footer.html'" class="pop" >
         </div>
@@ -103,6 +84,8 @@
         <script type="text/javascript" src="plugins/jslider/js/draggable-0.1.js"></script>
         <script type="text/javascript" src="plugins/jslider/js/jquery.slider.js"></script>
         <!-- end -->
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
             <!-- Date Picker -->
             <script src="js/bootstrap-datepicker.min.js"></script>
             <!-- Angularjs -->
@@ -119,7 +102,6 @@
             <script src="/angular-file-upload/dist/angular-file-upload.min.js"></script>
             <script src="/js/angular-locale_tr-tr.js"></script>
             <!-- Main JS -->
-            <script src="/javascripts/main.js"></script>
             <script src="/javascripts/bilgezapp.js"></script>
             <script src="/javascripts/services.js"></script>
             <script src="/javascripts/controllers.js"></script>
@@ -133,6 +115,5 @@
               destinationLanguages : 'fr,es,en',
              });
         </script>-->
-
 </body>
 </html>

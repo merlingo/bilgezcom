@@ -1607,16 +1607,7 @@ div.cs-select span {
   color: white !important;
 }
 
-#map {
-  width: 100%;
-  height: 500px;
-  position: relative;
-}
-@media screen and (max-width: 768px) {
-  #map {
-    height: 200px;
-  }
-}
+
 
 .fh5co-social-icons > a {
   padding: 4px 10px;
@@ -2473,11 +2464,11 @@ padding-bottom: 10px;*/
 
 
 
-
-
-
-
-
+.iframe-container {
+    overflow: hidden;
+    height: 750px;
+    width: 100%;
+}
 
 
 
